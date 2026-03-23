@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://ds75lvm8eqf4l"]
+[gd_scene load_steps=10 format=4 uid="uid://ds75lvm8eqf4l"]
 
 [ext_resource type="Texture2D" uid="uid://daddmg1hkc27d" path="res://Sprites/Backgrounds/backgroundForest.png" id="1_8ffim"]
+[ext_resource type="Script" uid="uid://icfwajcv701l" path="res://Scripts/background_parallax.gd" id="1_xrdnt"]
 [ext_resource type="TileSet" uid="uid://bphy4st8ym4ie" path="res://Sprites/Tiles/new_tile_set.tres" id="2_xfk5q"]
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="3_xfk5q"]
 [ext_resource type="PackedScene" uid="uid://u2b4k6a5qm08" path="res://Scenes/enemy.tscn" id="4_7p6j4"]
@@ -13,8 +14,31 @@ size = Vector2(15, 18)
 
 [node name="Main" type="Node2D"]
 
-[node name="BackgroundSprite" type="Sprite2D" parent="."]
-position = Vector2(319, -61)
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("1_xrdnt")
+
+[node name="BackgroundSprite3" type="Sprite2D" parent="Background"]
+position = Vector2(961.9689, 6.198883e-06)
+scale = Vector2(0.4412861, 0.5)
+texture = ExtResource("1_8ffim")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="Background"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8ffim")
+
+[node name="BackgroundSprite2" type="Sprite2D" parent="Background"]
+position = Vector2(496.00006, 3.0994415e-06)
+scale = Vector2(0.46972656, 0.5)
+texture = ExtResource("1_8ffim")
+
+[node name="BackgroundSprite4" type="Sprite2D" parent="Background"]
+position = Vector2(1399.7247, 9.298325e-06)
+scale = Vector2(0.4145676, 0.5)
+texture = ExtResource("1_8ffim")
+
+[node name="BackgroundSprite5" type="Sprite2D" parent="Background"]
+position = Vector2(1810.9758, 1.2397766e-05)
+scale = Vector2(0.38946682, 0.5)
 texture = ExtResource("1_8ffim")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
