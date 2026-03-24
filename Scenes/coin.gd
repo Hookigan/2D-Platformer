@@ -7,7 +7,7 @@ var bob_speed : float =5.0
 @onready var start_pos : Vector2 = global_position
 @onready var sprite : Sprite2D = $Sprite
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var time = Time.get_unix_time_from_system()
 	
 	#rotate
