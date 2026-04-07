@@ -21,6 +21,7 @@ var move_input : float
 @onready var audio : AudioStreamPlayer2D = $AudioStreamPlayer2D
 var take_damage_sfx : AudioStream = preload("res://Audio/take_damage.wav")
 var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
+@export var jump_sfx : AudioStream = preload("res://Added_Sprites/Jump_sound.wav")
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -40,7 +41,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed(input_jump) and is_on_floor():
 		velocity.y = -jump_force
-	
+		play_sound(jump_sfx)
 	move_and_slide()
 
 func _process(_delta):

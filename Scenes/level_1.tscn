@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c8ta1wr1gs2vo" path="res://Scenes/level_2.tscn" id="8_wrinw"]
 [ext_resource type="PackedScene" uid="uid://d055voyrwqpkw" path="res://Scenes/player_2.tscn" id="10_chwpn"]
 [ext_resource type="Script" uid="uid://hj6g3dqq3qkt" path="res://Scenes/camera_2d.gd" id="11_af3po"]
+[ext_resource type="AudioStream" uid="uid://nkcsldx776w5" path="res://Added_Sprites/Lvl_1.wav" id="12_uy8f0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrinw"]
 size = Vector2(15, 18)
@@ -98,5 +99,9 @@ shape = SubResource("RectangleShape2D_wrinw")
 script = ExtResource("11_af3po")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1509072348 groups=["SpawnPoint"]]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=144304241]
+stream = ExtResource("12_uy8f0")
+autoplay = true
 
 [connection signal="body_entered" from="EndFlag" to="EndFlag" method="_on_body_entered"]

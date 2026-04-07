@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://sn4kx8s8vou0" path="res://Added_Sprites/WAYWARD_Quit.png" id="6_q3rjx"]
 [ext_resource type="Texture2D" uid="uid://bldd3a2vyk1rd" path="res://Added_Sprites/Quit_Click.png" id="7_6swd7"]
 [ext_resource type="Texture2D" uid="uid://cfshcc4vukybv" path="res://Added_Sprites/Quit_Hover.png" id="8_7qvly"]
+[ext_resource type="AudioStream" uid="uid://barccohr6va7a" path="res://Added_Sprites/Menu.wav" id="9_6swd7"]
+[ext_resource type="AudioStream" uid="uid://4crguxq4h7f6" path="res://Added_Sprites/Button Sound.wav" id="10_7qvly"]
 
 [node name="Menu" type="Control" unique_id=36872163]
 layout_mode = 3
@@ -46,5 +48,14 @@ texture_normal = ExtResource("6_q3rjx")
 texture_pressed = ExtResource("7_6swd7")
 texture_hover = ExtResource("8_7qvly")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2092418887]
+stream = ExtResource("9_6swd7")
+autoplay = true
+
+[node name="Audio" type="AudioStreamPlayer" parent="." unique_id=1590693949]
+stream = ExtResource("10_7qvly")
+
+[connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
