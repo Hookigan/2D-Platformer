@@ -1,15 +1,16 @@
-[gd_scene format=3 uid="uid://dv0g1jn3n7ini"]
+[gd_scene format=3 uid="uid://d055voyrwqpkw"]
 
-[ext_resource type="Script" uid="uid://dm4f85m18rkkw" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://ct30vlqtgn3jv" path="res://Added_Sprites/Sprig.png" id="2_fkybt"]
-[ext_resource type="Texture2D" uid="uid://dom5vxmrit3hs" path="res://Added_Sprites/Sprig-Jump.png" id="2_x3wgy"]
-[ext_resource type="Script" uid="uid://hfptd803ygap" path="res://Scripts/player_ui.gd" id="4_fkybt"]
-[ext_resource type="Texture2D" uid="uid://miq1be7j6s70" path="res://Sprites/Objects/tile_0044.png" id="4_vgqql"]
-[ext_resource type="Texture2D" uid="uid://c50hiia3sg38b" path="res://Added_Sprites/Sprig-Fall.png" id="5_3smsa"]
+[ext_resource type="Script" uid="uid://dm4f85m18rkkw" path="res://Scripts/player.gd" id="1_mtyrt"]
+[ext_resource type="Texture2D" uid="uid://dom5vxmrit3hs" path="res://Added_Sprites/Sprig-Jump.png" id="2_bth63"]
+[ext_resource type="Texture2D" uid="uid://0yrlcx61t06n" path="res://Added_Sprites/PLUH.png" id="4_8os5a"]
+[ext_resource type="Texture2D" uid="uid://cc63ry158vw3a" path="res://Added_Sprites/PLUH_Fall.png" id="5_dgubp"]
+[ext_resource type="Script" uid="uid://hfptd803ygap" path="res://Scripts/player_ui.gd" id="6_ggx0o"]
+[ext_resource type="Texture2D" uid="uid://daty4ca85bak" path="res://Added_Sprites/PLUH_Jump.png" id="6_os74a"]
+[ext_resource type="Texture2D" uid="uid://miq1be7j6s70" path="res://Sprites/Objects/tile_0044.png" id="7_0kjde"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3wgy"]
-radius = 9.0
-height = 24.0
+radius = 6.0
+height = 18.0
 
 [sub_resource type="Animation" id="Animation_vgqql"]
 resource_name = "Idle"
@@ -24,7 +25,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_fkybt")]
+"values": [ExtResource("4_8os5a")]
 }
 
 [sub_resource type="Animation" id="Animation_fkybt"]
@@ -39,7 +40,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_x3wgy")]
+"values": [ExtResource("2_bth63")]
 }
 
 [sub_resource type="Animation" id="Animation_3smsa"]
@@ -54,7 +55,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_3smsa")]
+"values": [ExtResource("5_dgubp")]
 }
 
 [sub_resource type="Animation" id="Animation_6t5aa"]
@@ -69,7 +70,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_x3wgy")]
+"values": [ExtResource("6_os74a")]
 }
 
 [sub_resource type="Animation" id="Animation_x3wgy"]
@@ -86,7 +87,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("2_fkybt"), ExtResource("2_x3wgy")]
+"values": [ExtResource("4_8os5a"), ExtResource("6_os74a")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3smsa"]
@@ -98,23 +99,24 @@ _data = {
 &"move": SubResource("Animation_x3wgy")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_vgqql"]
+[sub_resource type="LabelSettings" id="LabelSettings_mtyrt"]
 font_size = 35
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=514404792 groups=["Player"]]
-script = ExtResource("1_cvnsp")
-move_speed = 80.0
-fall_gravity_multiplier = 1.0
-slow_fall = true
+script = ExtResource("1_mtyrt")
+move_speed = 120.0
+input_left = "move_left_p2"
+input_right = "move_right_p2"
+input_jump = "jump_p2"
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1375700992]
 position = Vector2(0, -12)
-texture = ExtResource("2_x3wgy")
+texture = ExtResource("2_bth63")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2070259686]
-position = Vector2(-1, -12)
+position = Vector2(1, -8)
 shape = SubResource("CapsuleShape2D_x3wgy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1517721099]
@@ -122,31 +124,34 @@ libraries/ = SubResource("AnimationLibrary_3smsa")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1424766587]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1251276152]
-script = ExtResource("4_fkybt")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1803682505]
+script = ExtResource("6_ggx0o")
 
-[node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1664103870]
-offset_bottom = 80.0
+[node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1060779394]
+offset_left = 900.0
+offset_top = 2.0
+offset_right = 1148.0
+offset_bottom = 82.0
 
-[node name="Heart" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=1874515109]
+[node name="Heart" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=1215845260]
 layout_mode = 2
-texture = ExtResource("4_vgqql")
+texture = ExtResource("7_0kjde")
 expand_mode = 2
 
-[node name="Heart2" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=2042683463]
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=93685792]
 layout_mode = 2
-texture = ExtResource("4_vgqql")
+texture = ExtResource("7_0kjde")
 expand_mode = 2
 
-[node name="Heart3" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=985252367]
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=227513102]
 layout_mode = 2
-texture = ExtResource("4_vgqql")
+texture = ExtResource("7_0kjde")
 expand_mode = 2
 
-[node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=1411364287]
-offset_left = 13.0
+[node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=858618573]
+offset_left = 12.0
 offset_top = 78.0
-offset_right = 240.0
+offset_right = 239.0
 offset_bottom = 135.0
 text = "Score: 500"
-label_settings = SubResource("LabelSettings_vgqql")
+label_settings = SubResource("LabelSettings_mtyrt")

@@ -13,12 +13,15 @@ func _ready ():
 	player.OnUpdateHealth.connect(_update_hearts)
 	player.OnUpdateScore.connect(_update_score)
 	
+	for p in get_tree().get_nodes_in_group("Player"):
+		p.OnUpdateScore.connect(_update_score)
+		
 	_update_hearts(player.health)
-	_update_score(PlayerStats.score)
+	_update_score(GameManager.score)
 	
 func _update_hearts (health : int):
 	for i in len(hearts):
 		hearts[i].visible = i < health
 	
 func _update_score (score : int):
-	score_text.text = "Score: " + str(score)
+	score_text.text = "Score: " + str(GameManager.score)

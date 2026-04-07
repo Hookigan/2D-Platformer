@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://ds75lvm8eqf4l"]
+[gd_scene format=4 uid="uid://ds75lvm8eqf4l"]
 
 [ext_resource type="Texture2D" uid="uid://daddmg1hkc27d" path="res://Sprites/Backgrounds/backgroundForest.png" id="1_8ffim"]
 [ext_resource type="Script" uid="uid://icfwajcv701l" path="res://Scripts/background_parallax.gd" id="1_xrdnt"]
@@ -9,83 +9,94 @@
 [ext_resource type="Script" uid="uid://c4hyv2302xgix" path="res://Scripts/end_flag.gd" id="6_lsmp6"]
 [ext_resource type="Texture2D" uid="uid://dmby8u4c7otw3" path="res://Sprites/Objects/tile_0112.png" id="7_xrdnt"]
 [ext_resource type="PackedScene" uid="uid://c8ta1wr1gs2vo" path="res://Scenes/level_2.tscn" id="8_wrinw"]
+[ext_resource type="PackedScene" uid="uid://d055voyrwqpkw" path="res://Scenes/player_2.tscn" id="10_chwpn"]
+[ext_resource type="Script" uid="uid://hj6g3dqq3qkt" path="res://Scenes/camera_2d.gd" id="11_af3po"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrinw"]
 size = Vector2(15, 18)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1272142956]
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="Node2D" parent="." unique_id=1465382037]
 position = Vector2(-1, 0)
 script = ExtResource("1_xrdnt")
 
-[node name="BackgroundSprite" type="Sprite2D" parent="Background"]
+[node name="BackgroundSprite" type="Sprite2D" parent="Background" unique_id=224411810]
 modulate = Color(0.8, 0.84705883, 0.73333335, 1)
 position = Vector2(-272, 1)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_8ffim")
 
-[node name="BackgroundSprite2" type="Sprite2D" parent="Background"]
+[node name="BackgroundSprite2" type="Sprite2D" parent="Background" unique_id=354615981]
 modulate = Color(0.8, 0.84705883, 0.73333335, 1)
 position = Vector2(444, 1)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_8ffim")
 
-[node name="BackgroundSprite3" type="Sprite2D" parent="Background"]
+[node name="BackgroundSprite3" type="Sprite2D" parent="Background" unique_id=777543922]
 modulate = Color(0.8, 0.84705883, 0.73333335, 1)
 position = Vector2(1160, 0.3000183)
 scale = Vector2(0.7, 0.70058596)
 texture = ExtResource("1_8ffim")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1610282889]
 tile_map_data = PackedByteArray("AAAIAAEAAAABAAAAAAAJAAEAAAACAAAAAAAKAAEAAAADAAAAAAAIAAQAAAABAAEAAAAJAAQAAAACAAEAAAAKAAQAAAADAAEAAAAIAP7/AAARAAQAAAAIAP//AAAQAAQAAAAIAAAAAAARAAYAAAAKAAAAAAAEAAUAAAAJAAUAAAACAAYAAAAJAAYAAAAFAAAAAAAIAAUAAAABAAYAAAAIAAYAAAABAAcAAAAKAAUAAAADAAYAAAAKAAYAAAADAAYAAAAIAAcAAAAPAAQAAAAJAAcAAAABAAcAAAAKAAcAAAADAAcAAAAHAP7/AAARAAIAAAAHAP3/AAARAAAAAAAIAP3/AAASAAAAAAAJAP3/AAATAAAAAAAJAP7/AAATAAIAAAANAAQAAAAAAAAAAAAIAAMAAAAEAAYAAAAJAAAAAAAGAAYAAAAAAAAAAAACAAEAAAAAAAEAAAACAAYAAAAAAAIAAAACAAYAAAAAAAMAAAACAAYAAAAAAAQAAAACAAYAAAAAAAUAAAACAAcAAAABAAAAAAACAAEAAAABAAEAAAACAAYAAAABAAIAAAACAAYAAAABAAMAAAACAAYAAAABAAQAAAACAAYAAAABAAUAAAACAAcAAAACAAAAAAACAAEAAAACAAEAAAACAAYAAAACAAIAAAACAAYAAAACAAMAAAACAAYAAAACAAQAAAACAAYAAAACAAUAAAACAAcAAAADAAAAAAACAAEAAAADAAUAAAACAAcAAAAEAAAAAAADAAAAAAAEAAUAAAADAAcAAAD//wAAAAABAAEAAAD//wEAAAABAAYAAAD//wIAAAABAAYAAAD//wMAAAABAAYAAAD//wQAAAABAAYAAAD//wUAAAABAAcAAAAXAAMAAAAAAAEAAAAXAAQAAAAAAAcAAAAUAAQAAAAAAAEAAAAUAAUAAAAAAAcAAAAQAAUAAAAAAAEAAAAQAAYAAAAAAAYAAAAQAAcAAAAAAAcAAAAUAAAAAAABAAAAAAAVAAAAAAACAAAAAAAWAP//AAAFAAYAAAAWAAAAAAADAAAAAAADAAEAAAADAAYAAAAEAAQAAAADAAEAAAADAAQAAAAEAAEAAAAaAAIAAAASAAQAAAAbAP//AAARAAAAAAAbAAAAAAARAAIAAAAbAAIAAAATAAQAAAAcAP//AAASAAAAAAAcAAAAAAARAAQAAAAcAAIAAAARAAUAAAAcAAcAAAABAAEAAAAcAAgAAAABAAYAAAAcAAkAAAABAAYAAAAcAAoAAAABAAcAAAAcAAEAAAAQAAQAAAAcAAMAAAAQAAUAAAAcAAQAAAAQAAQAAAAcAAUAAAAQAAYAAAAcAAYAAAARAAYAAAAdAP//AAATAAAAAAAdAAAAAAATAAIAAAAdAAIAAAATAAYAAAAdAAgAAAADAAYAAAAdAAkAAAADAAYAAAAdAAoAAAADAAcAAAAhAAAAAAABAAEAAAAhAAEAAAABAAYAAAAhAAIAAAABAAYAAAAhAAMAAAABAAcAAAAiAAAAAAACAAEAAAAiAAEAAAACAAYAAAAiAAIAAAACAAYAAAAiAAMAAAACAAcAAAAjAAAAAAACAAEAAAAjAAEAAAACAAYAAAAjAAIAAAACAAYAAAAjAAMAAAACAAcAAAAkAAAAAAACAAEAAAAkAAEAAAACAAYAAAAkAAIAAAACAAYAAAAkAAMAAAACAAcAAAAlAPz/AAARAAAAAAAlAP3/AAARAAIAAAAlAAAAAAACAAEAAAAlAAEAAAACAAYAAAAlAAIAAAACAAYAAAAlAAMAAAACAAcAAAAmAPz/AAASAAAAAAAmAP3/AAARAAQAAAAjAP//AAAEAAYAAAAmAP7/AAAQAAQAAAAmAP//AAARAAYAAAAmAAAAAAADAAEAAAAmAAEAAAADAAYAAAAmAAIAAAADAAYAAAAmAAMAAAADAAcAAAAnAPz/AAATAAAAAAAnAP3/AAATAAIAAAAdAAcAAAADAAEAAAADAAMAAAADAAYAAAADAAIAAAADAAYAAAAIAAgAAAAPAAYAAAAIAAkAAAAPAAIAAAAIAAoAAAAPAAIAAAAIAAsAAAAOAAIAAAAFAA0AAAAHAAcAAAAGAA0AAAANAAcAAAAHAA0AAAAOAAcAAAAIAA0AAAAOAAcAAAAJAA0AAAAOAAcAAAAKAA0AAAAPAAcAAAALAA0AAAAHAAcAAAAIAAwAAAAPAAMAAAAJAAwAAAAEAAcAAAAHAAwAAAAEAAcAAAAMAAwAAAAGAAcAADANAAwAAAAGAAcAAAAOAAsAAAAGAAcAADAOAAkAAAAGAAcAAAAPAAYAAAAGAAcAADA=")
 tile_set = ExtResource("2_xfk5q")
 
-[node name="Player" parent="." instance=ExtResource("3_xfk5q")]
+[node name="Player2" parent="." unique_id=514404792 instance=ExtResource("10_chwpn")]
+position = Vector2(23, 1)
+
+[node name="Player" parent="." unique_id=2104840514 instance=ExtResource("3_xfk5q")]
+position = Vector2(0, 1)
 jump_force = 210.0
 
-[node name="Coins" type="Node" parent="."]
+[node name="Coins" type="Node" parent="." unique_id=1792497578]
 
-[node name="Coin" parent="Coins" instance=ExtResource("5_6444e")]
+[node name="Coin" parent="Coins" unique_id=1878964721 instance=ExtResource("5_6444e")]
 position = Vector2(80, 47)
 
-[node name="Coin2" parent="Coins" instance=ExtResource("5_6444e")]
+[node name="Coin2" parent="Coins" unique_id=2043182169 instance=ExtResource("5_6444e")]
 position = Vector2(243, 64)
 
-[node name="Coin3" parent="Coins" instance=ExtResource("5_6444e")]
+[node name="Coin3" parent="Coins" unique_id=836783105 instance=ExtResource("5_6444e")]
 position = Vector2(368, -8)
 
-[node name="Coin4" parent="Coins" instance=ExtResource("5_6444e")]
+[node name="Coin4" parent="Coins" unique_id=1085038210 instance=ExtResource("5_6444e")]
 position = Vector2(187, 225)
 
-[node name="Enemies" type="Node" parent="."]
+[node name="Enemies" type="Node" parent="." unique_id=1791989960]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource("4_7p6j4")]
+[node name="Enemy" parent="Enemies" unique_id=184833773 instance=ExtResource("4_7p6j4")]
 position = Vector2(117, 91)
 
-[node name="Enemy2" parent="Enemies" instance=ExtResource("4_7p6j4")]
+[node name="Enemy2" parent="Enemies" unique_id=926788092 instance=ExtResource("4_7p6j4")]
 position = Vector2(398, 92)
 move_direction = Vector2(0, -60)
 move_speed = 60.0
 
-[node name="Enemy3" parent="Enemies" instance=ExtResource("4_7p6j4")]
+[node name="Enemy3" parent="Enemies" unique_id=1200207521 instance=ExtResource("4_7p6j4")]
 position = Vector2(321, 137)
 move_direction = Vector2(0, -80)
 move_speed = 50.0
 
-[node name="Enemy4" parent="Enemies" instance=ExtResource("4_7p6j4")]
+[node name="Enemy4" parent="Enemies" unique_id=596594146 instance=ExtResource("4_7p6j4")]
 position = Vector2(567, 19)
 move_speed = 100.0
 
-[node name="EndFlag" type="Area2D" parent="."]
+[node name="EndFlag" type="Area2D" parent="." unique_id=100436391]
 position = Vector2(648, -9)
 script = ExtResource("6_lsmp6")
 scene_to_load = ExtResource("8_wrinw")
 
-[node name="Sprite" type="Sprite2D" parent="EndFlag"]
+[node name="Sprite" type="Sprite2D" parent="EndFlag" unique_id=193383982]
 texture = ExtResource("7_xrdnt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndFlag"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndFlag" unique_id=1409293830]
 shape = SubResource("RectangleShape2D_wrinw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=5081536]
+script = ExtResource("11_af3po")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1509072348 groups=["SpawnPoint"]]
 
 [connection signal="body_entered" from="EndFlag" to="EndFlag" method="_on_body_entered"]

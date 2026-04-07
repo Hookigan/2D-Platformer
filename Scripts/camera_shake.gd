@@ -2,8 +2,8 @@ extends Camera2D
 
 var intensity : float = 0
 
-func _ready ():
-	get_parent().OnUpdateHealth.connect(_damage_shake)
+# func _ready ():
+	# get_parent().OnUpdateHealth.connect(_damage_shake)
 
 func _damage_shake (_health : int):
 	intensity = 3
