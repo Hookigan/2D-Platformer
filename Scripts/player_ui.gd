@@ -11,7 +11,7 @@ func _ready ():
 	hearts = health_container.get_children()
 	
 	player.OnUpdateHealth.connect(_update_hearts)
-	player.OnUpdateScore.connect(_update_score)
+	# player.OnUpdateScore.connect(_update_score)
 	
 	for p in get_tree().get_nodes_in_group("Player"):
 		p.OnUpdateScore.connect(_update_score)

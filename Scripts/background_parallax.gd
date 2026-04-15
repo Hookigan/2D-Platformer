@@ -1,6 +1,6 @@
 extends Node2D
 
-var parallax : float = 0.7
+var parallax : float = 0.2
 @onready var player = $"../Player"
 
 func _process (_delta):
