@@ -24,6 +24,10 @@ config/icon="res://icon.svg"
 PlayerStats="*res://Scripts/player_stats.gd"
 GameManager="*uid://3t45hrv0vjw2"
 
+[display]
+
+window/size/mode=3
+
 [input]
 
 move_left={

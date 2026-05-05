@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dncq3dblnf5pp"]
+
+[ext_resource type="Script" uid="uid://dbb72bvdesdfc" path="res://Scripts/Lv1.gd" id="1_xkndl"]
+[ext_resource type="PackedScene" uid="uid://ds75lvm8eqf4l" path="res://Scenes/level_1.tscn" id="2_u44n3"]
+[ext_resource type="Script" uid="uid://hj6g3dqq3qkt" path="res://Scripts/camera_2d.gd" id="3_u44n3"]
+
+[node name="Lv1" type="Control" unique_id=1995131180]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xkndl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=205026820]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 324.0
+theme_override_constants/separation = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer" unique_id=662134164]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer" unique_id=671244519]
+handle_input_locally = false
+size = Vector2i(576, 648)
+render_target_update_mode = 4
+
+[node name="Main" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=1272142956 instance=ExtResource("2_u44n3")]
+
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=1214271037]
+script = ExtResource("3_u44n3")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=1297339498]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer" unique_id=1816021586]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2" unique_id=209259867]
+handle_input_locally = false
+size = Vector2i(576, 648)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=333604413]
+script = ExtResource("3_u44n3")
+
+[editable path="HBoxContainer/SubViewportContainer/SubViewport/Main"]

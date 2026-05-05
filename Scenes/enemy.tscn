@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://u2b4k6a5qm08"]
 
-[ext_resource type="Script" uid="uid://yvtkn3roaqf" path="res://Scenes/enemy.gd" id="1_287tu"]
+[ext_resource type="Script" uid="uid://yvtkn3roaqf" path="res://Scripts/enemy.gd" id="1_287tu"]
 [ext_resource type="Texture2D" uid="uid://qeollmsallej" path="res://Added_Sprites/Bat_Up.png" id="3_0830c"]
 [ext_resource type="Texture2D" uid="uid://cw8ve08co5tms" path="res://Sprites/Characters/character_0024.png" id="3_ghaa6"]
 [ext_resource type="Texture2D" uid="uid://bull6n864v7ci" path="res://Added_Sprites/Bat_Mid.png" id="4_ghaa6"]

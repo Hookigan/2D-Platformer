@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://dm4f85m18rkkw" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ct30vlqtgn3jv" path="res://Added_Sprites/Sprig.png" id="2_fkybt"]
 [ext_resource type="Texture2D" uid="uid://dom5vxmrit3hs" path="res://Added_Sprites/Sprig-Jump.png" id="2_x3wgy"]
-[ext_resource type="Script" uid="uid://hfptd803ygap" path="res://Scripts/player_ui.gd" id="4_fkybt"]
-[ext_resource type="Texture2D" uid="uid://miq1be7j6s70" path="res://Sprites/Objects/tile_0044.png" id="4_vgqql"]
 [ext_resource type="Texture2D" uid="uid://c50hiia3sg38b" path="res://Added_Sprites/Sprig-Fall.png" id="5_3smsa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3wgy"]
@@ -98,11 +96,6 @@ _data = {
 &"move": SubResource("Animation_x3wgy")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_vgqql"]
-font_size = 35
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
 [node name="Player" type="CharacterBody2D" unique_id=514404792 groups=["Player"]]
 script = ExtResource("1_cvnsp")
 move_speed = 80.0
@@ -121,32 +114,3 @@ shape = SubResource("CapsuleShape2D_x3wgy")
 libraries/ = SubResource("AnimationLibrary_3smsa")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1424766587]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1251276152]
-script = ExtResource("4_fkybt")
-
-[node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1664103870]
-offset_bottom = 80.0
-
-[node name="Heart" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=1874515109]
-layout_mode = 2
-texture = ExtResource("4_vgqql")
-expand_mode = 2
-
-[node name="Heart2" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=2042683463]
-layout_mode = 2
-texture = ExtResource("4_vgqql")
-expand_mode = 2
-
-[node name="Heart3" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=985252367]
-layout_mode = 2
-texture = ExtResource("4_vgqql")
-expand_mode = 2
-
-[node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=1411364287]
-offset_left = 13.0
-offset_top = 78.0
-offset_right = 240.0
-offset_bottom = 135.0
-text = "Score: 500"
-label_settings = SubResource("LabelSettings_vgqql")
