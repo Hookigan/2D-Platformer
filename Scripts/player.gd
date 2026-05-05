@@ -74,16 +74,15 @@ func take_damage (amount : int):
 		call_deferred("game_over")
 		
 func game_over ():
-	health = 3
+	health = 1
 	OnUpdateHealth.emit(health)
 	velocity = Vector2.ZERO
 	global_position = get_tree().get_first_node_in_group("SpawnPoint").global_position
 	
-func increase_score (amount : int):
+# func increase_score (amount : int):
 	#print("score increased by ", amount, " total: ", GameManager.score)
-	GameManager.score += amount
-	OnUpdateScore.emit(GameManager.score)
-	play_sound(coin_sfx)
+	#OnUpdateScore.emit(GameManager.score)
+	#play_sound(coin_sfx)
 	
 func _damage_flash ():
 	sprite.modulate = Color.RED

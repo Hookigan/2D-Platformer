@@ -5,12 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://dom5vxmrit3hs" path="res://Added_Sprites/Sprig-Jump.png" id="2_bth63"]
 [ext_resource type="Texture2D" uid="uid://0yrlcx61t06n" path="res://Added_Sprites/PLUH.png" id="4_8os5a"]
 [ext_resource type="Texture2D" uid="uid://cc63ry158vw3a" path="res://Added_Sprites/PLUH_Fall.png" id="5_dgubp"]
-[ext_resource type="Script" uid="uid://hfptd803ygap" path="res://Scripts/player_ui.gd" id="6_ggx0o"]
 [ext_resource type="Texture2D" uid="uid://daty4ca85bak" path="res://Added_Sprites/PLUH_Jump.png" id="6_os74a"]
-[ext_resource type="Texture2D" uid="uid://miq1be7j6s70" path="res://Sprites/Objects/tile_0044.png" id="7_0kjde"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3wgy"]
-radius = 6.0
+radius = 7.0
 height = 18.0
 
 [sub_resource type="Animation" id="Animation_vgqql"]
@@ -100,11 +98,6 @@ _data = {
 &"move": SubResource("Animation_x3wgy")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_mtyrt"]
-font_size = 35
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
 [node name="Player" type="CharacterBody2D" unique_id=514404792 groups=["Player"]]
 script = ExtResource("1_mtyrt")
 move_speed = 120.0
@@ -125,35 +118,3 @@ shape = SubResource("CapsuleShape2D_x3wgy")
 libraries/ = SubResource("AnimationLibrary_3smsa")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1424766587]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1803682505]
-script = ExtResource("6_ggx0o")
-
-[node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1060779394]
-offset_left = 900.0
-offset_top = 2.0
-offset_right = 1148.0
-offset_bottom = 82.0
-
-[node name="Heart" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=1215845260]
-layout_mode = 2
-texture = ExtResource("7_0kjde")
-expand_mode = 2
-
-[node name="Heart2" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=93685792]
-layout_mode = 2
-texture = ExtResource("7_0kjde")
-expand_mode = 2
-
-[node name="Heart3" type="TextureRect" parent="CanvasLayer/HealthContainer" unique_id=227513102]
-layout_mode = 2
-texture = ExtResource("7_0kjde")
-expand_mode = 2
-
-[node name="ScoreText" type="Label" parent="CanvasLayer" unique_id=858618573]
-offset_left = 12.0
-offset_top = 78.0
-offset_right = 239.0
-offset_bottom = 135.0
-text = "Score: 500"
-label_settings = SubResource("LabelSettings_mtyrt")

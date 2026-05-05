@@ -10,7 +10,7 @@ func _on_play_button_pressed():
 	audio.play()
 	await audio.finished
 	PlayerStats.score = 0
-	get_tree().change_scene_to_file("res://Scenes/level_1.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Game.tscn")
 
 
 func _on_quit_button_pressed():

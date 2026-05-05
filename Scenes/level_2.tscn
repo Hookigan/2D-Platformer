@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dmby8u4c7otw3" path="res://Sprites/Objects/tile_0112.png" id="8_q0ycs"]
 [ext_resource type="PackedScene" uid="uid://byr7xwu7f3oj" path="res://Scenes/menu.tscn" id="8_uhnj4"]
 [ext_resource type="PackedScene" uid="uid://d055voyrwqpkw" path="res://Scenes/player_2.tscn" id="10_42uki"]
-[ext_resource type="Script" uid="uid://hj6g3dqq3qkt" path="res://Scenes/camera_2d.gd" id="11_t7v2y"]
+[ext_resource type="Script" uid="uid://hj6g3dqq3qkt" path="res://Scripts/camera_2d.gd" id="11_t7v2y"]
 [ext_resource type="AudioStream" uid="uid://cj3pokb7acdyd" path="res://Added_Sprites/Lvl_2.wav" id="12_ait6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrinw"]
