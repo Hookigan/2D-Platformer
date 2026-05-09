@@ -7,6 +7,10 @@
 [node name="Lv1" type="Control" unique_id=1995131180]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
 script = ExtResource("1_xkndl")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=205026820]
@@ -27,6 +31,7 @@ render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport" unique_id=1214271037]
 script = ExtResource("3_u44n3")
+zoom_level = 3.0
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=1297339498]
 custom_minimum_size = Vector2(1, 0)
@@ -42,5 +47,6 @@ render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport" unique_id=333604413]
 script = ExtResource("3_u44n3")
+zoom_level = 4.0
 
 [editable path="HBoxContainer/SubViewportContainer/SubViewport/Main"]

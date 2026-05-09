@@ -1,27 +1,40 @@
 extends CharacterBody2D
 
 signal OnUpdateHealth (health : int)
-signal OnUpdateScore (score : int)
+#signal OnUpdateScore (score : int)
 
 @export var move_speed : float = 100
 @export var acceleration : float = 50
 @export var braking : float = 20
 @export var gravity : float = 500
 @export var jump_force : float = 200
-@export var health : int = 3
+@export var health : int = 1
 @export var fall_gravity_multiplier : float = 2.0
 @export var input_left : String = "move_left"
 @export var input_right : String = "move_right"
 @export var input_jump : String = "jump"
 @export var slow_fall : bool = false
+@export var input_respawn : String = "respawn"
+@export var double_jump : bool = false
+@export var input_up : String = "jump_p2"
 
+
+@export var input_down : String = "down_p2"
+@export var climb_speed : float = 100.0
 var move_input : float
+var can_double_jump : bool = false
+var on_ladder : bool = false
+var frozen : bool = false
+
+
+
 @onready var sprite : Sprite2D = $Sprite
 @onready var anim : AnimationPlayer = $AnimationPlayer
 @onready var audio : AudioStreamPlayer2D = $AudioStreamPlayer2D
+@export var jump_sfx : AudioStream = preload("res://Added_Sprites/Jump_sound.wav")
 var take_damage_sfx : AudioStream = preload("res://Audio/take_damage.wav")
 var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
-@export var jump_sfx : AudioStream = preload("res://Added_Sprites/Jump_sound.wav")
+
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -39,18 +52,38 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x, 0.0, braking * delta)
 	
+	if is_on_floor():
+		can_double_jump = true
+		
 	if Input.is_action_just_pressed(input_jump) and is_on_floor():
 		velocity.y = -jump_force
 		play_sound(jump_sfx)
+	elif Input.is_action_just_pressed(input_jump) and double_jump and can_double_jump:
+		velocity.y = -jump_force
+		can_double_jump = false
+		play_sound(jump_sfx)
 	move_and_slide()
+	
+	if on_ladder:
+		velocity.y = 0
+		if Input.is_action_pressed(input_up):
+			velocity.y = -climb_speed
+		elif Input.is_action_pressed(input_down):
+			velocity.y = climb_speed
 
 func _process(_delta):
+	if Input.is_action_just_pressed(input_respawn):
+		game_over()
+	if frozen:
+		return
+	
 	if velocity.x != 0:
 		sprite.flip_h = velocity.x > 0
 	
-	if global_position.y > 250:
+	if global_position.y > 500:
 		game_over()
 	_manage_animation()
+	
 
 func _manage_animation():
 	if not is_on_floor():
@@ -92,3 +125,12 @@ func _damage_flash ():
 func play_sound (sound : AudioStream):
 	audio.stream = sound
 	audio.play()
+	
+func freeze():
+	frozen = true
+	set_physics_process(false)
+	anim.play("Idle")
+
+func unfreeze():
+	frozen = false
+	set_physics_process(true)

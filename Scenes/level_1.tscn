@@ -1,14 +1,33 @@
 [gd_scene format=3 uid="uid://ds75lvm8eqf4l"]
 
-[ext_resource type="Texture2D" uid="uid://ceup1o2v0j7d4" path="res://Added_Sprites/Tuto-Lvl1.png" id="3_6r07y"]
+[ext_resource type="Texture2D" uid="uid://bknmylipolfwc" path="res://Added_Sprites/Lv1_Bg.png" id="1_6ioyp"]
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="3_xfk5q"]
 [ext_resource type="Texture2D" uid="uid://b8vc7j82b8ktc" path="res://Added_Sprites/Lv1_Tile.png" id="4_oovug"]
+[ext_resource type="Texture2D" uid="uid://b3re427v4n4j8" path="res://Added_Sprites/Press_E.png" id="6_6ioyp"]
 [ext_resource type="Script" uid="uid://c4hyv2302xgix" path="res://Scripts/end_flag.gd" id="6_lsmp6"]
+[ext_resource type="Texture2D" uid="uid://cek7cxh0beb4b" path="res://Added_Sprites/Hold_W.png" id="7_oovug"]
 [ext_resource type="Texture2D" uid="uid://dmby8u4c7otw3" path="res://Sprites/Objects/tile_0112.png" id="7_xrdnt"]
+[ext_resource type="Texture2D" uid="uid://dq6utv0gm6wkw" path="res://Added_Sprites/Double_Jump.png" id="8_8i23i"]
 [ext_resource type="PackedScene" uid="uid://c8ta1wr1gs2vo" path="res://Scenes/level_2.tscn" id="8_wrinw"]
+[ext_resource type="Texture2D" uid="uid://b483xccwtpcxv" path="res://Added_Sprites/Careful.png" id="9_8yhm2"]
+[ext_resource type="PackedScene" uid="uid://cobdutl77vyns" path="res://Scenes/rope.tscn" id="10_af3po"]
 [ext_resource type="PackedScene" uid="uid://d055voyrwqpkw" path="res://Scenes/player_2.tscn" id="10_chwpn"]
+[ext_resource type="Texture2D" uid="uid://dqnu3qage114p" path="res://Added_Sprites/Lvl1_top.png" id="10_oovug"]
 [ext_resource type="AudioStream" uid="uid://nkcsldx776w5" path="res://Added_Sprites/Lvl_1.wav" id="12_uy8f0"]
 [ext_resource type="Texture2D" uid="uid://bwch3b3vq4wy3" path="res://Added_Sprites/Shadows.png" id="14_6ioyp"]
+[ext_resource type="Script" uid="uid://dfmhqng24hc1a" path="res://Scripts/trigger.gd" id="16_8i23i"]
+[ext_resource type="Texture2D" uid="uid://cmyi4xau1mca6" path="res://Added_Sprites/Lever1.png" id="16_gcla0"]
+[ext_resource type="Script" uid="uid://ceh7wys33f8x1" path="res://Scripts/dialogue_trigger.gd" id="17_8yhm2"]
+[ext_resource type="Texture2D" uid="uid://wdxery3v6r4x" path="res://Added_Sprites/Lever2.png" id="17_vr6f4"]
+[ext_resource type="Script" uid="uid://b7ks1v2eg76i5" path="res://Scripts/npc.gd" id="18_pjppf"]
+[ext_resource type="Texture2D" uid="uid://bn52gw8g3115i" path="res://Added_Sprites/Lever3.png" id="18_u5cqy"]
+[ext_resource type="Texture2D" uid="uid://e4vj2bkhfkow" path="res://Added_Sprites/Lever4.png" id="19_u0op5"]
+[ext_resource type="Script" uid="uid://db211x4mhfh65" path="res://Scripts/moving_platform.gd" id="19_yltlr"]
+[ext_resource type="Texture2D" uid="uid://5hld6exfpvmf" path="res://Added_Sprites/Lever5.png" id="20_1f27d"]
+[ext_resource type="Script" uid="uid://t6gs0xle1xi4" path="res://Scripts/chest.gd" id="20_6ssoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrinw"]
+size = Vector2(15, 18)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8i23i"]
 texture = ExtResource("4_oovug")
@@ -1357,45 +1376,95 @@ texture_region_size = Vector2i(36, 36)
 122:39/0 = 0
 123:39/0 = 0
 124:39/0 = 0
-0:0/size_in_atlas = Vector2i(55, 23)
+0:0/size_in_atlas = Vector2i(55, 22)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-893.56213, -65.47894, -894.1266, -121.36188, -707.8502, -121.36188, -707.28577, -98.78293, -694.8673, -94.26712, -685.27124, -96.525024, -672.2883, -95.96054, -648.016, -94.831604, -606.8094, -99.911865, -576.8923, -103.86319, -547.5396, -101.605286, -518.173, -102.15976, -473.92773, -100.54104, -436.51712, -94.6057, -403.78284, -86.871765, -386.1567, -82.91487, -374.24615, -78.46185, -357.91888, -73.2025, -348.7461, -72.84278, -340.3777, -65.47894, -341.50665, -79.02634, -362.95667, -87.49344, -373.68164, -93.70264, -383.84222, -90.88028, -394.78992, -91.008514, -391.91217, -95.68484, -377.5235, -101.9799, -370.1493, -101.9799, -366.90796, -107.25003, -355.94043, -97.303566, -354.68143, -92.62724, -348.02664, -92.08766, -346.04822, -88.13077, -333.0984, -85.25304, -327.9593, -81.848694, -315.54083, -77.33292, -306.47928, -76.26009, -298.5655, -78.95798, -283.2775, -77.519104, -273.02554, -75.36081, -262.95346, -75.00108, -253.42094, -71.403915, -242.98914, -71.403915, -235.95007, -67.17238, -211.6777, -63.22107, -200.38824, -53.06053, -195.86615, -48.741714, -197.12517, -45.144543, -202.08167, -44.59343, -208.2764, -43.166096, -211.87358, -42.086945, -220.86652, -42.086945, -234.17607, -40.648075, -233.6922, 175.55138, -250.06192, 173.85796, -291.26852, 172.72902, -296.3488, 170.47112, -309.3317, 173.85796, -347.15143, 182.32506, -399.08304, 181.7606, -449.3212, 176.68031, -590.65607, 179.13928, -598.92957, 177.70042, -602.7066, 178.77957, -619.4335, 178.95944, -623.2105, 177.88028, -643.5002, 176.68031, -749.05676, 175.55138, -794.7792, 180.63164, -832.59894, 164.2619, -840.4798, 158.6354, -844.4529, 149.0211, -858.5647, 124.18425, -863.645, 109.50793, -858.5647, 100.47635, -835.4438, 100.18131, -832.38617, 101.979904, -794.7957, 101.80004, -792.6374, 99.821594, -767.45715, 99.821594, -764.2197, 98.38273, -726.47784, 97.65398, -711.8015, 92.00924, -464.5751, 93.34668, -462.23694, 91.008514, -403.70514, 90.80976, -380.12646, 86.9862, -362.60178, 80.29495, -349.21927, 71.37329, -341.7316, 61.15197, -335.2975, 50.80265, -328.06232, 5.036045, -328.9616, -21.583038, -329.8609, -28.957253, -335.2975, -37.255272, -339.933, -48.92157, -352.2317, -60.963173, -365.47296, -70.504616, -381.58435, -76.20398, -405.85675, -80.1553, -439.72516, -89.186874, -467.3844, -91.44477, -523.8318, -94.83161, -568.9897, -94.26714, -603.98706, -88.05793, -648.016, -80.719765, -688.65814, -75.07503, -704.4634, -73.94608, -721.39764, -65.47897)
-0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(-990.3043, -47.157352, -686.01196, -46.838722, -686.01196, -21.348259, -690.4728, -20.073738, -693.6591, -12.107971, -700.9876, -0.63726044, -709.272, 10.196182, -717.87506, 26.44635, -718.5123, 34.73075, -716.9192, 46.838722, -709.272, 55.123116, -462.0146, 54.80449, -462.0146, -14.975647, -346.35162, -15.294277, -345.71436, 9.240292, -346.9889, 19.436478, -351.1311, 36.005272, -358.14096, 49.706398, -367.38126, 56.71627, -374.46588, 61.691544, -382.19983, 63.310272, -390.6532, 66.367874, -405.2983, 69.142876, -419.95532, 70.4174, -440.98492, 70.4174, -461.05865, 71.37329, -462.65186, 59.583946, -713.4143, 59.58395, -715.3261, 63.088886, -722.01733, 65.00067, -734.1253, 62.77026, -745.596, 62.77026, -761.5276, 60.85847, -778.415, 61.49574, -804.22406, 64.68204, -821.1115, 67.86835, -848.1951, 69.4615, -865.4012, 70.41739, -903.9555, 71.37329, -916.0635, 73.6037, -934.8627, 77.42728, -943.1471, 80.29495, -957.4854, 114.06981, -959.0786, 274.02246, -950.7942, 281.03232, -944.1029, 287.72357, -934.544, 290.59125, -924.66644, 294.0962, -737.9488, 295.05206, -738.26746, 313.53265, -989.6671, 314.16992)
-0:0/0/physics_layer_0/polygon_2/points = PackedVector2Array(-633.1027, -14.748413, -632.74304, -19.24488, -590.2963, -19.24488, -590.11646, -15.108131)
-0:0/0/physics_layer_0/polygon_3/points = PackedVector2Array(-557.3822, -8.273499, -556.84265, -3.956894, -513.31683, -3.956894, -512.7772, -7.733925)
-0:0/0/physics_layer_0/polygon_4/points = PackedVector2Array(-678.96674, -167.44849, -675.0098, -166.9089, -673.0314, -164.93045, -672.85156, -161.15343, -675.36957, -159.17499, -678.78687, -158.81526, -681.12506, -160.7937, -680.9452, -164.57074)
-0:0/0/physics_layer_0/polygon_5/points = PackedVector2Array(-631.30414, -237.41353, -631.12427, -240.83084, -628.78613, -243.34888, -625.3688, -243.169, -623.2105, -241.01071, -623.2105, -237.59338, -625.0091, -235.25522, -628.78613, -235.07536)
-0:0/0/physics_layer_0/polygon_6/points = PackedVector2Array(-528.2451, -162.05272, -523.92847, -162.05272, -522.1299, -159.89441, -521.9501, -156.11739, -523.74866, -153.59937, -527.52563, -153.59937, -529.86383, -155.93753, -529.86383, -160.07428)
-0:0/0/physics_layer_0/polygon_7/points = PackedVector2Array(-450.1864, -143.16754, -446.2295, -143.16754, -444.25107, -140.46967, -444.0712, -137.41208, -446.2295, -135.25377, -449.82666, -135.25377, -451.8051, -137.05235, -451.8051, -140.82938)
-0:0/0/physics_layer_0/polygon_8/points = PackedVector2Array(-596.47675, 301.10605, -505.9856, 301.10605, -505.9856, 309.7091, -596.47675, 309.39044)
-0:0/0/physics_layer_0/polygon_9/points = PackedVector2Array(-372.1277, 301.80295, -371.94785, 310.79587, -281.1192, 310.79587, -281.1192, 301.80295)
-0:0/0/physics_layer_0/polygon_10/points = PackedVector2Array(-233.99622, 301.80295, -210.075, 301.62308, -209.89514, 310.79587, -233.9962, 310.79587)
-0:0/0/physics_layer_0/polygon_11/points = PackedVector2Array(-743.6842, -353.3615, -714.0515, -293.14032, -693.3405, -290.90988, -689.1983, -288.67947, -664.9824, -288.36084, -656.698, -308.7532, -642.9969, -338.7045, -603.168, -362.6018, -540.07916, -356.54782, -508.85333, -316.40033, -504.07388, -284.21863, -505.3484, -265.4194, -496.4267, -254.26736, -486.23053, -251.08105, -455.64197, -245.02707, -439.71042, -243.4339, -432.70056, -241.84076, -394.78992, -209.71529, -364.03406, -182.73648, -339.34177, -152.62411, -331.37598, -124.58461, -316.719, -131.27585, -298.87567, -138.60437, -284.8559, -142.74657, -245.34567, -142.10931, -238.01718, -139.56026, -226.86511, -130.00134, -214.43849, -123.31009, -198.82558, -121.07968, -174.29102, -123.31009, -155.49179, -129.36407, -142.42793, -136.37395, -133.8249, -136.69258, -121.716934, -132.55038, -115.66295, -130.6386, -108.97171, -136.37395, -96.545105, -140.51614, -85.71167, -139.87889, -42.696503, -143.38382, -22.941406, -137.64847, -3.8235474, -137.01122, 5.416748, -146.57013, 8.921661, -153.26138, 15.612915, -156.76633, 23.26007, -155.81042, 25.171844, -153.89865, 42.059265, -165.68799, 49.387787, -166.64388, 57.990814, -168.8743, 64.0448, -172.37923, 75.83414, -170.78607, 85.39307, -174.60965, 89.85388, -177.15869, 100.05008, -187.3549, 105.78543, -199.14423, 108.65311, -209.65906, 120.12381, -223.99744, 127.4523, -227.50238, 133.50629, -236.42404, 185.44312, -237.0613, 185.76175, -242.1594, -115.344315, -242.47803, -114.70706, -249.80652, -87.94208, -271.1548, -84.43713, -286.7677, -81.88809, -297.60114, -76.15274, -293.77756, -61.814377, -299.19427, -34.093506, -313.8513, -30.907196, -316.40033, -31.544434, -319.58664, -31.22583, -330.10147, 18.799225, -358.77823, 51.29956, -370.56757, 64.3634, -377.57745, 66.27521, -387.455, 77.7459, -385.22458, 103.23637, -366.42535, 123.3101, -352.72424, 132.55038, -344.43982, 134.78082, -341.57214, 146.25153, -341.89078, 153.58002, -352.72424, 170.14883, -362.60178, 199.78146, -377.89606, 230.05139, -390.95993, 239.29169, -388.4109, 250.44376, -387.455, 255.22324, -413.90137, -748.145, -413.90137)
-0:0/0/physics_layer_0/polygon_12/points = PackedVector2Array(-213.3711, -21.450005, -206.03293, -27.094746, -183.45398, -25.401325, -154.66583, -28.78817, -123.61975, -30.48159, -123.61975, -34.432907, -111.76581, -33.30396, -102.16974, -30.48159, -93.13815, -29.917114, -87.49344, -31.046062, -50.802612, -32.739487, -34.997345, -28.223694, 55.31848, -27.659222, 70.559265, -28.78817, 220.70929, -28.78817, 229.17639, -27.659222, 251.19092, -27.094746, 250.6264, -18.063164, 244.98169, -7.3381577, 229.7409, -5.080269, 100.47638, -6.7736893, 9, -9, -86.36447, -9.596054, -111.76581, -9.031586, -121.92633, 12.982895, -127.571075, 34.997375, -127.00659, 67.172386, -122.490814, 90.88029, -112.894745, 111.76583, -101.0408, 131.5224, -86.928955, 146.76321, -72.252625, 163.13293, -72.252625, 167.64874, 243.28827, 165.39084, 243.28821, 412.06592, -95.96057, 412.06592, -95.96057, 239.33691, -102.73425, 231.43428, -110.63687, 215.06454, -118.53952, 201.51717, -129.26453, 184.58295, -141.11847, 176.68033, -152.40794, 173.85794, -206.03296, 173.29349, -207.1619, -3.9513092, -209.4198, -12.982895)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-894.3965, -104.19225, -708.31616, -103.87362, -707.9975, -80.294945, -697.80133, -76.471375, -683.7816, -78.06453, -674.22266, -75.834114, -607.6288, -81.569466, -573.53534, -86.0303, -568.75586, -82.52536, -559.51556, -82.206726, -549.63806, -82.84399, -529.2457, -83.79988, -502.4807, -82.84399, -474.75983, -80.932205, -455.00473, -79.657684, -429.19565, -74.87822, -415.4945, -72.32918, -394.46487, -66.91245, -375.0284, -62.77025, -375.0284, -62.132988, -361.6459, -56.07901, -348.58206, -55.441742, -343.48395, -49.06913, -339.21356, -48.471924, -338.7045, -58.309425, -337.41498, -63.4002, -334.17752, -66.457794, -329.68103, -65.198784, -325.0034, -62.77025, -317.35623, -59.265312, -310.66498, -58.309425, -302.06195, -58.62805, -297.2825, -59.902573, -289.31674, -58.946686, -281.98822, -58.62805, -259.0468, -55.44175, -246.62021, -52.8927, -236.1054, -50.662285, -227.50237, -47.79461, -213.80124, -45.88282, -209.02179, -43.652405, -195.6393, -30.588547, -197.66473, -26.619091, -206.79137, -26.44635, -211.57083, -23.578674, -233.55635, -22.941406, -233.87497, 194.04613, -250.44377, 192.45297, -297.28247, 189.26666, -314.1699, 191.81572, -347.62613, 199.14423, -400.2002, 199.46286, -418.6808, 197.23244, -450.22522, 194.6834, -484.0001, 195.32065, -555.692, 195.32065, -589.7855, 197.23244, -621.64856, 197.23244, -692.38464, 193.09024, -786.69934, 197.55107, -818.5624, 189.26666, -827.1654, 183.53131, -836.40576, 181.3009, -842.1411, 173.65376, -844.6901, 166.64389, -850.4255, 158.99675, -854.8863, 149.43782, -859.34717, 142.74658, -861.8962, 138.28574, -861.8962, 132.23177, -862.85205, 127.133675, -860.9403, 121.07969, -855.8422, 118.53064, -848.83234, 118.21201, -833.538, 117.89338, -823.34186, 120.761055, -807.0917, 119.80516, -793.7092, 119.486534, -782.5571, 117.574745, -770.44916, 117.89338, -759.2971, 116.61886, -749.41956, 115.9816, -732.5321, 115.34433, -724.56635, 115.9816, -713.41425, 111.52077, -667.8501, 111.20213, -463.60773, 111.20214, -448.63208, 108.65308, -425.69067, 108.01583, -399.8816, 107.6972, -382.03827, 104.19225, -365.15085, 98.4569, -346.67026, 84.75578, -340.9349, 78.06454, -335.5182, 66.59383, -331.6946, 52.574074, -328.82693, 36.00528, -326.91516, 21.348263, -326.59653, 7.0098763, -326.91516, -6.691244, -332.96912, -19.755104, -344.1212, -36.961166, -353.36148, -44.926933, -365.7881, -53.52997, -388.41086, -60.858475, -404.02377, -63.40752, -429.83286, -68.82424, -454.0488, -73.6037, -471.5735, -75.51549, -494.83353, -77.7459, -507.8974, -78.38316, -523.8289, -77.42728, -554.7361, -76.471375, -582.457, -74.24097, -599.02576, -72.966446, -619.7368, -69.4615, -636.3056, -66.91246, -655.7649, -66.00815, -680.76526, -64.209564, -696.9526, -62.05126, -707.92395, -57.73465, -715.65784, -53.238182, -722.85223, -49.191364, -746.59357, -47.392776, -894.7151, -47.157356)
+0:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(-990.48206, -28.597534, -893.89795, -28.711636, -686.34094, -28.147892, -685.80133, -3.2374573, -697.85187, 12.0505295, -709.183, 26.978811, -716.9169, 42.986237, -718.71545, 51.799316, -717.6363, 61.871407, -712.4204, 69.24561, -710.98157, 72.662926, -462.4168, 72.84278, -462.0571, 2.877739, -346.4079, 3.057598, -346.4079, 28.7774, -347.66693, 37.590477, -349.10577, 46.94313, -351.98352, 56.295784, -355.94043, 62.41098, -359.71744, 68.16646, -365.11322, 73.38236, -371.76797, 78.23855, -379.68176, 81.11629, -389.93372, 84.353745, -399.1065, 86.152336, -408.99875, 88.13078, -418.35138, 88.13078, -429.1429, 89.38979, -462.05707, 90.10922, -462.05707, 78.058685, -713.3197, 78.23855, -713.85925, 80.576706, -719.4349, 83.454445, -723.57166, 82.91487, -726.98895, 81.29614, -736.3416, 81.11629, -747.6727, 80.576706, -757.9247, 78.95798, -774.11194, 80.576706, -794.61584, 82.01558, -805.40735, 83.63431, -836.52295, 86.871765, -862.06287, 88.13078, -893.53815, 88.67035, -916.38025, 91.18838, -932.5675, 95.14526, -942.2799, 98.02301, -946.5965, 107.37566, -951.4527, 114.92973, -953.79083, 121.40465, -958.2873, 132.01631, -958.82684, 292.09058, -952.7117, 298.0259, -944.0784, 305.58, -934.54596, 308.27786, -930.7689, 310.7959, -923.5746, 312.77432, -738.32007, 312.9542, -737.9604, 331.83936, -990.6619, 331.83936)
+0:0/0/physics_layer_0/polygon_2/points = PackedVector2Array(-742.7283, -336.15543, -715.00745, -274.97833, -696.52686, -274.02243, -691.7474, -271.15475, -672.9481, -271.79202, -662.1147, -270.19888, -654.1489, -267.96844, -647.13904, -283.9, -632.48206, -298.23837, -613.68286, -311.62088, -591.6973, -319.268, -576.403, -315.76306, -561.42737, -304.92963, -544.54, -286.1304, -539.7605, -266.05667, -535.93695, -256.49774, -532.432, -250.76239, -523.829, -243.75252, -512.3583, -239.61032, -499.93164, -236.74265, -490.0541, -237.06128, -483.36285, -235.14949, -475.07846, -231.96318, -466.79407, -230.05139, -458.50964, -230.05139, -451.4998, -228.77687, -444.80853, -223.36015, -439.07318, -223.9974, -431.74466, -224.31604, -387.455, -187.67352, -370.24893, -170.46747, -351.76834, -152.94278, -341.89078, -137.6485, -335.83682, -125.54053, -332.6505, -112.79529, -331.05734, -107.37857, -322.4543, -111.8394, -313.21402, -114.70708, -298.23837, -122.67285, -277.20874, -124.26601, -244.07114, -122.67285, -225.9092, -111.83939, -214.43849, -104.19225, -197.55106, -103.55499, -179.3891, -105.46678, -161.22716, -109.92761, -143.0652, -117.25612, -132.23175, -119.486534, -122.991455, -115.0257, -114.38843, -113.751175, -111.52075, -117.89338, -101.005936, -121.07968, -86.66754, -121.71695, -76.15274, -122.99147, -41.74063, -123.947365, -28.995392, -121.07968, -16.88742, -119.80516, -7.9657593, -119.1679, 2.8676758, -126.17778, 6.6912537, -135.09944, 13.063873, -138.923, 19.755127, -139.56027, 22.622803, -137.01123, 34.093506, -139.8789, 43.015167, -149.43782, 52.255447, -149.43784, 57.9908, -152.30551, 68.18698, -153.58003, 79.33905, -153.2614, 87.94209, -159.95265, 97.50101, -165.05074, 103.55499, -181.61954, 108.01582, -191.17847, 117.57475, -202.33054, 124.26601, -209.34042, 128.72682, -209.02179, 132.86903, -218.89934, 185.4431, -218.89934, 185.12447, -225.27196, -114.70708, -224.31607, -118.53064, -227.50238, -105.785416, -238.01718, -92.40292, -250.76242, -86.66757, -253.6301, -85.71168, -265.73807, -81.88811, -280.39508, -74.87823, -275.297, -68.82425, -275.297, -61.81437, -281.35095, -52.574074, -284.8559, -39.19159, -294.73346, -31.863075, -296.64523, -30.907188, -298.87567, -32.500343, -302.06195, -32.500336, -309.0718, -17.843315, -320.54254, -0.3186264, -330.10144, 14.338394, -337.11133, 29.951294, -345.71436, 43.333786, -351.13107, 61.17711, -355.2733, 64.68205, -361.6459, 65.95657, -368.33713, 74.5596, -366.42535, 84.11853, -361.32727, 94.63333, -355.59192, 105.14815, -347.62613, 115.02571, -340.61627, 125.54053, -332.65048, 134.14355, -323.72882, 145.29562, -323.09155, 149.1192, -328.18967, 156.12906, -336.7927, 166.00662, -343.48395, 180.98227, -349.85657, 189.5853, -355.91052, 198.82559, -358.4596, 204.56094, -361.96454, 218.89932, -368.0185, 230.68866, -373.43524, 238.97308, -371.52344, 241.84076, -368.33713, 250.76242, -369.29303, 251.71829, -375.34702, 252.6742, -382.3569, 252.6742, -391.27856, 255.8605, -394.14624, 255.8605, -396.058, 246.93884, -396.058, -758.3412, -395.42078)
+0:0/0/physics_layer_0/polygon_3/points = PackedVector2Array(-187.96982, -7.33815, -199.82303, -7.913784, -207.73682, -5.3957596, -212.23329, -4.4964676, -207.7264, 6.773697, -206.03297, 18.063171, -205.4685, 190.79216, -146.76321, 190.79216, -137.6485, 198.82559, -127.77095, 205.51685, -115.344345, 222.08563, -108.01584, 235.78676, -101.64322, 249.48788, -95.270615, 257.77228, -96.54512, 396.05804, 244.38979, 395.73938, 243.75253, 183.84995, -71.054665, 183.53131, -77.10864, 175.88417, -86.9862, 167.59978, -94.95197, 156.4477, -107.05994, 142.42795, -112.15803, 129.68271, -118.21201, 117.89338, -123.62874, 102.91773, -125.22189, 91.128395, -128.08957, 75.19685, -129.04547, 55.441753, -124.266, 39.191586, -118.53065, 18.799213, -112.47666, 9.877553, -64.68205, 10.196184, -4.4608307, 9, 242.15936, 12.426598, 249.80652, 0, 252.03693, -6.691246, 251.39966, -9.240288, 141.79068, -11.152077, 44.92694, -8.603027, -0.3186264, -9, -57.034904, -13.701118, -141.47205, -12.426598)
+0:0/0/physics_layer_0/polygon_4/points = PackedVector2Array(-678.607, -148.92303, -675.72925, -149.10289, -673.3911, -146.76472, -673.0314, -144.2467, -675.0098, -141.36896, -678.06744, -141.00925, -680.58545, -142.9877, -681.125, -146.22516)
+0:0/0/physics_layer_0/polygon_5/points = PackedVector2Array(-628.96594, -225.00328, -625.1889, -225.00328, -623.03064, -222.84497, -623.03064, -219.96722, -624.4695, -217.62907, -628.60626, -217.26935, -630.9444, -219.60751, -630.9444, -222.66512)
+0:0/0/physics_layer_0/polygon_6/points = PackedVector2Array(-528.425, -144.24669, -524.4681, -144.42654, -521.9501, -141.90854, -521.7702, -138.67108, -524.10834, -136.15305, -527.70557, -135.79333, -530.2236, -137.77179, -530.0437, -141.72867)
+0:0/0/physics_layer_0/polygon_7/points = PackedVector2Array(-450.00653, -125.18168, -446.40936, -125.18168, -444.25104, -122.66366, -444.07117, -119.60606, -446.2295, -117.447754, -449.46695, -117.2679, -452.16483, -119.4262, -452.16483, -123.02338)
+0:0/0/physics_layer_0/polygon_8/points = PackedVector2Array(-596.7954, 318.9494, -505.98566, 319.268, -505.66702, 327.55243, -505.66702, 327.55243, -596.15814, 327.23376)
+0:0/0/physics_layer_0/polygon_9/points = PackedVector2Array(-372.12772, 319.9687, -280.93933, 319.9687, -280.93933, 328.96164, -372.3076, 328.78177)
+0:0/0/physics_layer_0/polygon_10/points = PackedVector2Array(-233.81636, 319.9687, -210.07501, 319.9687, -210.07501, 328.78174, -234.17609, 328.9616)
+0:0/0/physics_layer_0/polygon_11/points = PackedVector2Array(-633.1027, -1.2590103, -632.9229, 2.6978798, -589.93665, 3.057598, -589.7568, -1.0791512)
+0:0/0/physics_layer_0/polygon_12/points = PackedVector2Array(-557.02246, 9.892235, -557.02246, 14.028984, -512.9571, 14.028984, -513.13696, 10.07209)
+0:0/0/physics_layer_0/polygon_13/points = PackedVector2Array(741.13513, -124.90326, 743.04694, -125.221886, 743.536, -121.22479, 746.8705, -118.21201, 774.2919, -117.80747, 774.2919, -126.26083, 817.8176, -126.08098, 817.99756, -117.987335, 842.7784, -117.89338, 846.6019, -122.03558, 846.92053, -124.90326, 849.151, -125.54052, 848.83234, 396.05804, 740.8165, 396.05804)
+0:0/0/physics_layer_0/polygon_14/points = PackedVector2Array(635.0311, -322.4543, 628.33984, -316.0817, 627.06537, -308.75317, 628.33984, -300.7874, 633.438, -296.00797, 640.4479, -293.1403, 639.8106, -289.3167, 634.71246, -287.40494, 625.79083, -287.0863, 617.5064, -286.44904, 616.86914, -278.16464, 615.59467, -250.76239, 623.24176, -239.29169, 633.1193, -235.78674, 648.73224, -236.10538, 667.2128, -234.1936, 676.7717, -230.37003, 686.96796, -219.53658, 693.0219, -213.16396, 698.75726, -212.20807, 892.16614, -211.88943, 899.4946, -214.11986, 903.31824, -219.53658, 908.09766, -225.59056, 916.3821, -231.64455, 924.9851, -235.14948, 939.0049, -235.78674, 961.6277, -237.69853, 969.91205, -244.7084, 973.7356, -249.80649, 974.05426, -283.9, 970.8679, -286.44904, 953.98047, -287.0863, 951.1128, -290.2726, 953.34326, -294.4148, 960.67175, -297.28247, 963.5394, -308.11594, 962.2649, -316.71896, 955.57367, -321.81705)
 
 [sub_resource type="TileSet" id="TileSet_8yhm2"]
 tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8i23i")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrinw"]
-size = Vector2(15, 18)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yhm2"]
+size = Vector2(3, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pm77i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_gcla0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_gcla0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vr6f4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_u5cqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_u0op5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_1f27d")
+}],
+"loop": false,
+"name": &"pull",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjppf"]
+size = Vector2(58, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yltlr"]
+size = Vector2(50, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ssoq"]
+size = Vector2(71, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imks0"]
+size = Vector2(114, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlmop"]
+size = Vector2(32, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sda17"]
+size = Vector2(66, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fal7"]
+size = Vector2(70, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcla0"]
+size = Vector2(75, 16)
 
 [node name="Main" type="Node2D" unique_id=1272142956]
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1807873107]
-position = Vector2(560, -35)
-texture = ExtResource("3_6r07y")
+[node name="Lv1Bg" type="Sprite2D" parent="." unique_id=890493236]
+position = Vector2(553, -31)
+texture = ExtResource("1_6ioyp")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1509072348 groups=["SpawnPoint"]]
-position = Vector2(6, -92)
-
-[node name="Tilemaps" type="Node" parent="." unique_id=811036032]
-
-[node name="Main Level" type="TileMapLayer" parent="Tilemaps" unique_id=568971593]
-position = Vector2(48, 467)
-tile_map_data = PackedByteArray(0, 0, 27, 0, 228, 255, 0, 0, 0, 0, 0, 0, 0, 0)
-tile_set = SubResource("TileSet_8yhm2")
+position = Vector2(506, -67)
 
 [node name="EndFlag" type="Area2D" parent="." unique_id=100436391]
 position = Vector2(1341, -181)
@@ -1408,42 +1477,334 @@ texture = ExtResource("7_xrdnt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndFlag" unique_id=1409293830]
 shape = SubResource("RectangleShape2D_wrinw")
 
-[node name="Node" type="Node" parent="." unique_id=115729556]
+[node name="Sprites" type="Node" parent="." unique_id=115729556]
 
-[node name="Shadows" type="Sprite2D" parent="Node" unique_id=2030146471]
-position = Vector2(-519.00006, -41.000004)
+[node name="PressE" type="Sprite2D" parent="Sprites" unique_id=661794807]
+position = Vector2(376, -92)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_6ioyp")
+
+[node name="HoldW" type="Sprite2D" parent="Sprites" unique_id=252695713]
+position = Vector2(-399.00003, -162)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_oovug")
+
+[node name="DoubleJump" type="Sprite2D" parent="Sprites" unique_id=166280134]
+position = Vector2(-115, -93)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_8i23i")
+
+[node name="Careful" type="Sprite2D" parent="Sprites" unique_id=1866504733]
+position = Vector2(-205, -196)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_8yhm2")
+
+[node name="Shadows" type="Sprite2D" parent="Sprites" unique_id=2030146471]
+position = Vector2(-526.795, -41.000004)
 rotation = 1.5707964
-scale = Vector2(1.1784749, 0.5732148)
+scale = Vector2(1.1784749, 0.5927021)
 texture = ExtResource("14_6ioyp")
 
-[node name="Shadows2" type="Sprite2D" parent="Node" unique_id=1537928315]
-position = Vector2(522, -489)
+[node name="Shadows2" type="Sprite2D" parent="Sprites" unique_id=1537928315]
+position = Vector2(521.99994, -469)
 rotation = -3.1415925
 scale = Vector2(3.216154, 0.32744884)
 texture = ExtResource("14_6ioyp")
 
-[node name="Shadows3" type="Sprite2D" parent="Node" unique_id=1946865153]
+[node name="Shadows3" type="Sprite2D" parent="Sprites" unique_id=1946865153]
 position = Vector2(-46, -8.999998)
 scale = Vector2(0.33437493, 0.09714337)
 texture = ExtResource("14_6ioyp")
 
-[node name="Shadows4" type="Sprite2D" parent="Node" unique_id=878328613]
+[node name="Shadows4" type="Sprite2D" parent="Sprites" unique_id=878328613]
 position = Vector2(417.00006, 260.99997)
 rotation = -1.5707964
 scale = Vector2(0.30567494, 0.3422782)
 texture = ExtResource("14_6ioyp")
 
-[node name="Player" parent="." unique_id=2104840514 instance=ExtResource("3_xfk5q")]
-position = Vector2(-414, -75)
-jump_force = 210.0
-health = 1
+[node name="Shadows5" type="Sprite2D" parent="Sprites" unique_id=1318294004]
+position = Vector2(1614.5, -30.692123)
+rotation = -1.5707964
+scale = Vector2(1.1392446, 0.48395208)
+texture = ExtResource("14_6ioyp")
 
-[node name="Player2" parent="." unique_id=514404792 instance=ExtResource("10_chwpn")]
-position = Vector2(-389, -75)
-health = 1
+[node name="Lvl1Top" type="Sprite2D" parent="Sprites" unique_id=67250501]
+position = Vector2(553, -30)
+texture = ExtResource("10_oovug")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=144304241]
 stream = ExtResource("12_uy8f0")
 autoplay = true
+
+[node name="Player" parent="." unique_id=2104840514 instance=ExtResource("3_xfk5q")]
+position = Vector2(-414, -75)
+jump_force = 210.0
+
+[node name="Player2" parent="." unique_id=514404792 instance=ExtResource("10_chwpn")]
+position = Vector2(-389, -75)
+jump_force = 180.0
+input_respawn = "respawn_p2"
+double_jump = true
+
+[node name="Main Level" type="TileMapLayer" parent="." unique_id=568971593]
+position = Vector2(48, 467)
+tile_map_data = PackedByteArray(0, 0, 27, 0, 227, 255, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_8yhm2")
+
+[node name="Puzzles" type="Node" parent="." unique_id=1825094609]
+
+[node name="Trigger" type="Area2D" parent="Puzzles" unique_id=1199795172]
+script = ExtResource("16_8i23i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzles/Trigger" unique_id=1442633509]
+position = Vector2(246, 268)
+shape = SubResource("RectangleShape2D_8yhm2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Puzzles/Trigger" unique_id=2138983220]
+position = Vector2(246, 259)
+sprite_frames = SubResource("SpriteFrames_pm77i")
+animation = &"pull"
+frame_progress = 0.71369404
+
+[node name="Platform" type="StaticBody2D" parent="Puzzles" unique_id=1344040926]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puzzles/Platform" unique_id=1335493549]
+position = Vector2(180, -120.999985)
+rotation = 0.1605703
+shape = SubResource("RectangleShape2D_pjppf")
+disabled = true
+
+[node name="Rope" parent="Puzzles" unique_id=617449430 instance=ExtResource("10_af3po")]
+position = Vector2(320, 97)
+
+[node name="Dialogue Area" type="Node" parent="." unique_id=1217026411]
+
+[node name="DialogueTrigger" type="Area2D" parent="Dialogue Area" unique_id=302293870]
+position = Vector2(320, 97)
+script = ExtResource("17_8yhm2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Area/DialogueTrigger" unique_id=1439212465]
+position = Vector2(368, -163)
+shape = SubResource("RectangleShape2D_yltlr")
+
+[node name="BlackedOut" type="ColorRect" parent="Dialogue Area" unique_id=427637757]
+offset_left = 414.0
+offset_top = -42.0
+offset_right = 787.0
+offset_bottom = 164.0
+color = Color(0, 0, 0, 1)
+
+[node name="DialogueUI" type="CanvasLayer" parent="Dialogue Area" unique_id=320827739]
+
+[node name="DialogueBox" type="Panel" parent="Dialogue Area/DialogueUI" unique_id=589938126]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -197.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogueText" type="Label" parent="Dialogue Area/DialogueUI/DialogueBox" unique_id=1208364552]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 42.0
+offset_right = 1149.0
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 33
+
+[node name="SpeakerLabel" type="Label" parent="Dialogue Area/DialogueUI/DialogueBox" unique_id=907264543]
+layout_mode = 1
+offset_right = 263.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 30
+
+[node name="ContinueLabel" type="Label" parent="Dialogue Area/DialogueUI/DialogueBox" unique_id=943546716]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -34.0
+offset_right = 154.0
+offset_bottom = -11.0
+grow_vertical = 0
+text = "Press E to continue"
+
+[node name="NPC" type="Node" parent="." unique_id=1155199113]
+
+[node name="NPC" type="Area2D" parent="NPC" unique_id=1565529054]
+script = ExtResource("18_pjppf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/NPC" unique_id=547334239]
+position = Vector2(565.5, 109.5)
+shape = SubResource("RectangleShape2D_6ssoq")
+
+[node name="ColorRect" type="ColorRect" parent="NPC/NPC" unique_id=837138729]
+offset_left = 477.0
+offset_top = 73.0
+offset_right = 517.0
+offset_bottom = 113.0
+
+[node name="MovingPlatform" type="StaticBody2D" parent="NPC" unique_id=1372742425]
+visible = false
+position = Vector2(-7, 0)
+script = ExtResource("19_yltlr")
+move_height = 400.0
+
+[node name="CollisionShape" type="CollisionShape2D" parent="NPC/MovingPlatform" unique_id=1101042651]
+visible = false
+position = Vector2(880, 146.5)
+shape = SubResource("RectangleShape2D_imks0")
+
+[node name="ColorRect" type="ColorRect" parent="NPC/MovingPlatform" unique_id=656595238]
+offset_left = 824.0
+offset_top = 138.0
+offset_right = 938.0
+offset_bottom = 155.0
+
+[node name="DetectionArea" type="Area2D" parent="NPC/MovingPlatform" unique_id=1718686165]
+position = Vector2(880, 147)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/MovingPlatform/DetectionArea" unique_id=2010870266]
+position = Vector2(1, -10)
+shape = SubResource("RectangleShape2D_imks0")
+
+[node name="DialogueUI" type="CanvasLayer" parent="NPC" unique_id=3244314]
+
+[node name="DialogueBox" type="Panel" parent="NPC/DialogueUI" unique_id=1998623044]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -198.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SpeakerLabel" type="Label" parent="NPC/DialogueUI/DialogueBox" unique_id=709282041]
+layout_mode = 0
+offset_right = 187.0
+offset_bottom = 33.0
+theme_override_font_sizes/font_size = 30
+
+[node name="DialogueText" type="Label" parent="NPC/DialogueUI/DialogueBox" unique_id=306307575]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -50.0
+offset_right = 1150.0
+offset_bottom = 62.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 33
+
+[node name="ContinueLabel" type="Label" parent="NPC/DialogueUI/DialogueBox" unique_id=1686288186]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -34.0
+offset_right = 191.0
+grow_vertical = 0
+text = "Press E to continue"
+
+[node name="Chest_End" type="Node" parent="." unique_id=235093415]
+
+[node name="Chest" type="Area2D" parent="Chest_End" unique_id=350298949]
+script = ExtResource("20_6ssoq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest_End/Chest" unique_id=1223823438]
+position = Vector2(515, -282)
+shape = SubResource("RectangleShape2D_dlmop")
+
+[node name="ColorRect" type="ColorRect" parent="Chest_End/Chest" unique_id=375496720]
+offset_left = 467.0
+offset_top = -294.0
+offset_right = 499.0
+offset_bottom = -271.0
+
+[node name="Platform1" type="StaticBody2D" parent="Chest_End" unique_id=1857606243]
+position = Vector2(-29, -205)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest_End/Platform1" unique_id=488718016]
+position = Vector2(867, -44.5)
+shape = SubResource("RectangleShape2D_sda17")
+
+[node name="ColorRect" type="ColorRect" parent="Chest_End/Platform1" unique_id=896343355]
+offset_left = 834.0
+offset_top = -51.0
+offset_right = 900.0
+offset_bottom = -38.0
+
+[node name="Platform2" type="StaticBody2D" parent="Chest_End" unique_id=793419767]
+position = Vector2(-18, -82)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest_End/Platform2" unique_id=1855068969]
+position = Vector2(1025, -93)
+shape = SubResource("RectangleShape2D_1fal7")
+
+[node name="ColorRect" type="ColorRect" parent="Chest_End/Platform2" unique_id=924536258]
+offset_left = 990.0
+offset_top = -100.0
+offset_right = 1060.0
+offset_bottom = -86.0
+
+[node name="Platform3" type="StaticBody2D" parent="Chest_End" unique_id=1471069901]
+position = Vector2(18, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest_End/Platform3" unique_id=1259193472]
+position = Vector2(1180.5, -130)
+shape = SubResource("RectangleShape2D_gcla0")
+
+[node name="ColorRect" type="ColorRect" parent="Chest_End/Platform3" unique_id=2054520787]
+offset_left = 1143.0
+offset_top = -138.0
+offset_right = 1218.0
+offset_bottom = -122.0
+
+[node name="DialogueUI" type="CanvasLayer" parent="Chest_End" unique_id=409652567]
+
+[node name="DialogueBox" type="Panel" parent="Chest_End/DialogueUI" unique_id=766368649]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -198.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SpeakerLabel" type="Label" parent="Chest_End/DialogueUI/DialogueBox" unique_id=89112917]
+layout_mode = 0
+offset_right = 210.0
+offset_bottom = 35.0
+theme_override_font_sizes/font_size = 30
+
+[node name="DialogueText" type="Label" parent="Chest_End/DialogueUI/DialogueBox" unique_id=919696989]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -52.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 33
+
+[node name="ContinueLabel" type="Label" parent="Chest_End/DialogueUI/DialogueBox" unique_id=733286044]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -34.0
+offset_right = 155.0
+offset_bottom = -11.0
+grow_vertical = 0
+text = "Press E to continue"
 
 [connection signal="body_entered" from="EndFlag" to="EndFlag" method="_on_body_entered"]

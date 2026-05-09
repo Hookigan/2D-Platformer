@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cobdutl77vyns"]
+
+[ext_resource type="Script" uid="uid://cahx37kcqsnar" path="res://Scripts/rope.gd" id="1_qawu5"]
+[ext_resource type="Texture2D" uid="uid://b4g4ve7yf7n8n" path="res://Added_Sprites/Rope.png" id="2_wytdi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_auoud"]
+radius = 5.0
+height = 52.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe201"]
+size = Vector2(6, 335)
+
+[node name="Node2D" type="Node2D" unique_id=617449430]
+script = ExtResource("1_qawu5")
+
+[node name="Rope" type="Sprite2D" parent="." unique_id=1136918619]
+texture = ExtResource("2_wytdi")
+
+[node name="KnotArea" type="Area2D" parent="." unique_id=1691246997]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnotArea" unique_id=1100686683]
+position = Vector2(20, -160)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_auoud")
+
+[node name="ClimbArea" type="Area2D" parent="." unique_id=1914490112]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClimbArea" unique_id=2092408102]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qe201")
