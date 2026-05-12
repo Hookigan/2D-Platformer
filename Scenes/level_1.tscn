@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ds75lvm8eqf4l"]
 
 [ext_resource type="Texture2D" uid="uid://bknmylipolfwc" path="res://Added_Sprites/Lv1_Bg.png" id="1_6ioyp"]
+[ext_resource type="PackedScene" uid="uid://cwc6ii3wggiur" path="res://Scenes/transition.tscn" id="3_gcla0"]
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="3_xfk5q"]
 [ext_resource type="Texture2D" uid="uid://b8vc7j82b8ktc" path="res://Added_Sprites/Lv1_Tile.png" id="4_oovug"]
 [ext_resource type="Texture2D" uid="uid://b3re427v4n4j8" path="res://Added_Sprites/Press_E.png" id="6_6ioyp"]
@@ -8,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cek7cxh0beb4b" path="res://Added_Sprites/Hold_W.png" id="7_oovug"]
 [ext_resource type="Texture2D" uid="uid://dmby8u4c7otw3" path="res://Sprites/Objects/tile_0112.png" id="7_xrdnt"]
 [ext_resource type="Texture2D" uid="uid://dq6utv0gm6wkw" path="res://Added_Sprites/Double_Jump.png" id="8_8i23i"]
-[ext_resource type="PackedScene" uid="uid://c8ta1wr1gs2vo" path="res://Scenes/level_2.tscn" id="8_wrinw"]
 [ext_resource type="Texture2D" uid="uid://b483xccwtpcxv" path="res://Added_Sprites/Careful.png" id="9_8yhm2"]
 [ext_resource type="PackedScene" uid="uid://cobdutl77vyns" path="res://Scenes/rope.tscn" id="10_af3po"]
 [ext_resource type="PackedScene" uid="uid://d055voyrwqpkw" path="res://Scenes/player_2.tscn" id="10_chwpn"]
@@ -1464,12 +1464,12 @@ position = Vector2(553, -31)
 texture = ExtResource("1_6ioyp")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1509072348 groups=["SpawnPoint"]]
-position = Vector2(506, -67)
+position = Vector2(1296, -176)
 
 [node name="EndFlag" type="Area2D" parent="." unique_id=100436391]
 position = Vector2(1341, -181)
 script = ExtResource("6_lsmp6")
-scene_to_load = ExtResource("8_wrinw")
+scene_to_load = ExtResource("3_gcla0")
 
 [node name="Sprite" type="Sprite2D" parent="EndFlag" unique_id=193383982]
 texture = ExtResource("7_xrdnt")
@@ -1535,16 +1535,6 @@ texture = ExtResource("10_oovug")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=144304241]
 stream = ExtResource("12_uy8f0")
 autoplay = true
-
-[node name="Player" parent="." unique_id=2104840514 instance=ExtResource("3_xfk5q")]
-position = Vector2(-414, -75)
-jump_force = 210.0
-
-[node name="Player2" parent="." unique_id=514404792 instance=ExtResource("10_chwpn")]
-position = Vector2(-389, -75)
-jump_force = 180.0
-input_respawn = "respawn_p2"
-double_jump = true
 
 [node name="Main Level" type="TileMapLayer" parent="." unique_id=568971593]
 position = Vector2(48, 467)
@@ -1806,5 +1796,15 @@ offset_right = 155.0
 offset_bottom = -11.0
 grow_vertical = 0
 text = "Press E to continue"
+
+[node name="Player" parent="." unique_id=2104840514 instance=ExtResource("3_xfk5q")]
+position = Vector2(-414, -75)
+jump_force = 210.0
+
+[node name="Player2" parent="." unique_id=514404792 instance=ExtResource("10_chwpn")]
+position = Vector2(-389, -75)
+jump_force = 180.0
+input_respawn = "respawn_p2"
+double_jump = true
 
 [connection signal="body_entered" from="EndFlag" to="EndFlag" method="_on_body_entered"]

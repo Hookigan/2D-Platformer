@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cwc6ii3wggiur"]
+
+[ext_resource type="Script" uid="uid://lpgsly26ql7y" path="res://Scripts/transition.gd" id="1_3nmoj"]
+[ext_resource type="Texture2D" uid="uid://c010gygbqplnx" path="res://Added_Sprites/Lvl1-Lvl2BG.png" id="2_nshyj"]
+[ext_resource type="PackedScene" uid="uid://bklpfav3xdxc4" path="res://Scripts/Ladder.tscn" id="3_0y44x"]
+[ext_resource type="PackedScene" uid="uid://do0vbcmfd4re8" path="res://Scenes/end_flag2.tscn" id="4_0slgg"]
+[ext_resource type="Texture2D" uid="uid://ob6n05qelbl1" path="res://Added_Sprites/Lvl1-Lvl2S.png" id="4_mkumt"]
+[ext_resource type="Script" uid="uid://bcjnnl337bs4d" path="res://Scripts/camera_2d1.gd" id="4_s7ldf"]
+[ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="5_0y44x"]
+[ext_resource type="PackedScene" uid="uid://c8ta1wr1gs2vo" path="res://Scenes/level_2.tscn" id="5_j2wpc"]
+[ext_resource type="PackedScene" uid="uid://d055voyrwqpkw" path="res://Scenes/player_2.tscn" id="6_mkumt"]
+
+[node name="Transition" type="Node2D" unique_id=229256387]
+script = ExtResource("1_3nmoj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1284981304]
+offset_left = -233.0
+offset_top = -132.0
+offset_right = 452.0
+offset_bottom = 415.0
+color = Color(0, 0, 0, 1)
+
+[node name="Lvl1Lvl2bg" type="Sprite2D" parent="." unique_id=87318088]
+position = Vector2(102, 149)
+texture = ExtResource("2_nshyj")
+
+[node name="Ladder" parent="." unique_id=1860804923 instance=ExtResource("3_0y44x")]
+position = Vector2(102, 75)
+
+[node name="EndFlag3" parent="." unique_id=1961935802 instance=ExtResource("4_0slgg")]
+position = Vector2(100, 268)
+scene_to_load = ExtResource("5_j2wpc")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=2097989212]
+position = Vector2(100, 6)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1274088220]
+position = Vector2(113, 107)
+zoom = Vector2(3, 3)
+script = ExtResource("4_s7ldf")
+
+[node name="Player" parent="." unique_id=514404792 instance=ExtResource("5_0y44x")]
+position = Vector2(102, 26)
+
+[node name="Player2" parent="." unique_id=1019947318 instance=ExtResource("6_mkumt")]
+position = Vector2(101, 49)
+input_up = "climb_up_p2"
+input_down = "climb_down_p2"
+
+[node name="Lvl1Lvl2s" type="Sprite2D" parent="." unique_id=135052000]
+position = Vector2(102, 151)
+texture = ExtResource("4_mkumt")

@@ -12,10 +12,13 @@ extends Node
 		player = $HBoxContainer/SubViewportContainer/SubViewport/Main/Player2
 	}
 }
-
-
 func _ready() -> void:
 	players["2"].viewport.world_2d = players["1"].viewport.world_2d
+	for node in players.values():
+		var remote_transform := RemoteTransform2D.new()
+		remote_transform.remote_path = node.camera.get_path()
+		node.player.add_child(remote_transform)
+		
 	
 	players["1"].viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
 	players["2"].viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
@@ -24,11 +27,7 @@ func _ready() -> void:
 	_update_viewport_sizes()
 	get_tree().root.size_changed.connect(_update_viewport_sizes)
 	
-	for node in players.values():
-		var remote_transform := RemoteTransform2D.new()
-		remote_transform.remote_path = node.camera.get_path()
-		node.player.add_child(remote_transform)
-
+	
 func _update_viewport_sizes():
 	var screen_size = get_viewport().get_visible_rect().size
 	$HBoxContainer.size = screen_size

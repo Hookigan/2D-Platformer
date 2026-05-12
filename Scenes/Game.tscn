@@ -4,17 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://ds75lvm8eqf4l" path="res://Scenes/level_1.tscn" id="2_u44n3"]
 [ext_resource type="Script" uid="uid://hj6g3dqq3qkt" path="res://Scripts/camera_2d.gd" id="3_u44n3"]
 
-[node name="Lv1" type="Control" unique_id=1995131180]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 1.0
-offset_bottom = -1.0
+[node name="Lv1" type="Node" unique_id=55967825]
 script = ExtResource("1_xkndl")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=205026820]
-layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 324.0
 theme_override_constants/separation = 0

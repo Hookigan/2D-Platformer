@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 signal OnUpdateHealth (health : int)
-#signal OnUpdateScore (score : int)
 
 @export var move_speed : float = 100
 @export var acceleration : float = 50
@@ -16,17 +15,14 @@ signal OnUpdateHealth (health : int)
 @export var slow_fall : bool = false
 @export var input_respawn : String = "respawn"
 @export var double_jump : bool = false
-@export var input_up : String = "jump_p2"
-
-
-@export var input_down : String = "down_p2"
+@export var input_up : String = "climb_up"
+@export var input_down : String = "climb_down"
 @export var climb_speed : float = 100.0
+
 var move_input : float
 var can_double_jump : bool = false
 var on_ladder : bool = false
 var frozen : bool = false
-
-
 
 @onready var sprite : Sprite2D = $Sprite
 @onready var anim : AnimationPlayer = $AnimationPlayer
@@ -35,8 +31,18 @@ var frozen : bool = false
 var take_damage_sfx : AudioStream = preload("res://Audio/take_damage.wav")
 var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
 
-
 func _physics_process(delta):
+	# Ladder takes priority over everything
+	if on_ladder:
+		velocity.y = 0
+		velocity.x = 0
+		if Input.is_action_pressed(input_up):
+			velocity.y = -climb_speed
+		elif Input.is_action_pressed(input_down):
+			velocity.y = climb_speed
+		move_and_slide()
+		return
+	
 	if not is_on_floor():
 		if velocity.y > 0:
 			velocity.y += gravity * fall_gravity_multiplier * delta
@@ -62,14 +68,8 @@ func _physics_process(delta):
 		velocity.y = -jump_force
 		can_double_jump = false
 		play_sound(jump_sfx)
-	move_and_slide()
 	
-	if on_ladder:
-		velocity.y = 0
-		if Input.is_action_pressed(input_up):
-			velocity.y = -climb_speed
-		elif Input.is_action_pressed(input_down):
-			velocity.y = climb_speed
+	move_and_slide()
 
 func _process(_delta):
 	if Input.is_action_just_pressed(input_respawn):
@@ -83,7 +83,6 @@ func _process(_delta):
 	if global_position.y > 500:
 		game_over()
 	_manage_animation()
-	
 
 func _manage_animation():
 	if not is_on_floor():
@@ -95,37 +94,30 @@ func _manage_animation():
 		anim.play("move")
 	else:
 		anim.play("Idle")
-		
 
-func take_damage (amount : int):
+func take_damage(amount : int):
 	health -= amount
 	OnUpdateHealth.emit(health)
 	_damage_flash()
 	play_sound(take_damage_sfx)
-	
 	if health <= 0:
 		call_deferred("game_over")
-		
-func game_over ():
+
+func game_over():
 	health = 1
 	OnUpdateHealth.emit(health)
 	velocity = Vector2.ZERO
-	global_position = get_tree().get_first_node_in_group("SpawnPoint").global_position
 	
-# func increase_score (amount : int):
-	#print("score increased by ", amount, " total: ", GameManager.score)
-	#OnUpdateScore.emit(GameManager.score)
-	#play_sound(coin_sfx)
-	
-func _damage_flash ():
+
+func _damage_flash():
 	sprite.modulate = Color.RED
-	await get_tree ().create_timer(0.05).timeout
+	await get_tree().create_timer(0.05).timeout
 	sprite.modulate = Color.WHITE
 
-func play_sound (sound : AudioStream):
+func play_sound(sound : AudioStream):
 	audio.stream = sound
 	audio.play()
-	
+
 func freeze():
 	frozen = true
 	set_physics_process(false)
