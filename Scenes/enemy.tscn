@@ -1,67 +1,19 @@
-[gd_scene format=3 uid="uid://u2b4k6a5qm08"]
+[gd_scene format=3 uid="uid://dmhrqlmj78ugw"]
 
-[ext_resource type="Script" uid="uid://yvtkn3roaqf" path="res://Scripts/enemy.gd" id="1_287tu"]
-[ext_resource type="Texture2D" uid="uid://qeollmsallej" path="res://Added_Sprites/Bat_Up.png" id="3_0830c"]
-[ext_resource type="Texture2D" uid="uid://cw8ve08co5tms" path="res://Sprites/Characters/character_0024.png" id="3_ghaa6"]
-[ext_resource type="Texture2D" uid="uid://bull6n864v7ci" path="res://Added_Sprites/Bat_Mid.png" id="4_ghaa6"]
-[ext_resource type="Texture2D" uid="uid://7c6tiy0vh1bb" path="res://Added_Sprites/Bat_Down.png" id="5_1dp5w"]
+[ext_resource type="Script" uid="uid://br880tibjs680" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://bm4j0gp13xyht" path="res://icon.svg" id="2_afpow"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_287tu"]
-radius = 6.0
-height = 18.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yqyl"]
+size = Vector2(125, 125)
 
-[sub_resource type="Animation" id="Animation_chwpn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_ghaa6")]
-}
+[node name="Node2D" type="Node2D" unique_id=645969550]
 
-[sub_resource type="Animation" id="Animation_wrinw"]
-resource_name = "fly"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.33333334, 0.56666666),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("3_0830c"), ExtResource("4_ghaa6"), ExtResource("5_1dp5w"), ExtResource("4_ghaa6")]
-}
+[node name="Enemy" type="CharacterBody2D" parent="." unique_id=1046062143]
+script = ExtResource("1_1f0kj")
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_af3po"]
-_data = {
-&"RESET": SubResource("Animation_chwpn"),
-&"fly": SubResource("Animation_wrinw")
-}
+[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=1786872830]
+texture = ExtResource("2_afpow")
 
-[node name="Enemy" type="Area2D" unique_id=1480219949]
-script = ExtResource("1_287tu")
-move_direction = Vector2(0, -100)
-
-[node name="Sprite" type="Sprite2D" parent="." unique_id=402037129]
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_ghaa6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803031547]
-position = Vector2(0, 1)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_287tu")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=376794422]
-libraries/ = SubResource("AnimationLibrary_af3po")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=1436835978]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_3yqyl")
