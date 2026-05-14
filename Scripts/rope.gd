@@ -28,12 +28,26 @@ func _on_knot_exited(body):
 func _on_climb_entered(body):
 	if body.is_in_group("Player"):
 		body.on_ladder = true
+		body.lock_x_on_ladder = false
+		if body.name == "Player":
+			body.input_up = "rope_up_p1"
+			body.input_down = "rope_down_p1"
+		else:
+			body.input_up = "rope_up_p2"
+			body.input_down = "rope_down_p2"
 
 func _on_climb_exited(body):
 	if body.is_in_group("Player"):
 		body.on_ladder = false
+		body.lock_x_on_ladder = true
+		if body.name == "Player":
+			body.input_up = "climb_up"
+			body.input_down = "climb_down"
+		else:
+			body.input_up = "climb_up_p2"
+			body.input_down = "climb_down_p2"
 
 func untie():
 	is_tied = false
 	climb_area.monitoring = true
-	print("Rope untied!")
+	# print("Rope untied!")

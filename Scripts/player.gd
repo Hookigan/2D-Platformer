@@ -18,6 +18,7 @@ signal OnUpdateHealth (health : int)
 @export var input_up : String = "climb_up"
 @export var input_down : String = "climb_down"
 @export var climb_speed : float = 100.0
+@export var lock_x_on_ladder : bool = false
 
 var move_input : float
 var can_double_jump : bool = false
@@ -31,11 +32,18 @@ var frozen : bool = false
 var take_damage_sfx : AudioStream = preload("res://Audio/take_damage.wav")
 var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
 
+
 func _physics_process(delta):
-	# Ladder takes priority over everything
 	if on_ladder:
 		velocity.y = 0
-		velocity.x = 0
+		if not lock_x_on_ladder:
+			move_input = Input.get_axis(input_left, input_right)
+			if move_input != 0:
+				velocity.x = lerp(velocity.x, move_input * move_speed, acceleration * delta)
+			else:
+				velocity.x = lerp(velocity.x, 0.0, braking * delta)
+		else:
+			velocity.x = 0
 		if Input.is_action_pressed(input_up):
 			velocity.y = -climb_speed
 		elif Input.is_action_pressed(input_down):
@@ -107,7 +115,9 @@ func game_over():
 	health = 1
 	OnUpdateHealth.emit(health)
 	velocity = Vector2.ZERO
-	
+	var spawn = get_tree().get_first_node_in_group("SpawnPoint")
+	if spawn:
+		global_position = spawn.global_position
 
 func _damage_flash():
 	sprite.modulate = Color.RED

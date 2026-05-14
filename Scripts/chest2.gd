@@ -7,20 +7,15 @@ extends Area2D
 
 @onready var platforms = [
 	$"../Platform1",
-	$"../Platform2",
-	$"../Platform3",
 ]
 
 var players_inside : Array = []
 var chest_opened : bool = false
 var current_line : int = 0
 var dialogue_lines = [
-	{"speaker": "Sprig", "text": "What's this?"},
-	{"speaker": "Pluh", "text": "Maybe treasure!"},
-	{"speaker": "Sprig", "text": "...A seed?"},
-	{"speaker": "Pluh", "text": "What does it do?"},
-	{"speaker": "Sprig", "text": "Where did those platforms come from?"},
-	{"speaker": "Pluh", "text": "I don't know, but let's go!"},
+	{"speaker": "Sprig", "text": "Maybe the seed can help here."},
+	{"speaker": "Sprig", "text": "Maybe the seed can help here."},
+	{"speaker": "Pluh", "text": "Let's try it."},
 ]
 
 func _ready():

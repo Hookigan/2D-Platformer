@@ -2,12 +2,11 @@
 
 [ext_resource type="Script" uid="uid://lpgsly26ql7y" path="res://Scripts/transition.gd" id="1_3nmoj"]
 [ext_resource type="Texture2D" uid="uid://c010gygbqplnx" path="res://Added_Sprites/Lvl1-Lvl2BG.png" id="2_nshyj"]
-[ext_resource type="PackedScene" uid="uid://bklpfav3xdxc4" path="res://Scripts/Ladder.tscn" id="3_0y44x"]
-[ext_resource type="PackedScene" uid="uid://do0vbcmfd4re8" path="res://Scenes/end_flag2.tscn" id="4_0slgg"]
+[ext_resource type="PackedScene" uid="uid://bklpfav3xdxc4" path="res://Scenes/Ladder.tscn" id="3_0y44x"]
 [ext_resource type="Texture2D" uid="uid://ob6n05qelbl1" path="res://Added_Sprites/Lvl1-Lvl2S.png" id="4_mkumt"]
 [ext_resource type="Script" uid="uid://bcjnnl337bs4d" path="res://Scripts/camera_2d1.gd" id="4_s7ldf"]
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="5_0y44x"]
-[ext_resource type="PackedScene" uid="uid://c8ta1wr1gs2vo" path="res://Scenes/level_2.tscn" id="5_j2wpc"]
+[ext_resource type="PackedScene" uid="uid://do0vbcmfd4re8" path="res://Scenes/end_flag2.tscn" id="5_j2wpc"]
 [ext_resource type="PackedScene" uid="uid://d055voyrwqpkw" path="res://Scenes/player_2.tscn" id="6_mkumt"]
 
 [node name="Transition" type="Node2D" unique_id=229256387]
@@ -27,7 +26,7 @@ texture = ExtResource("2_nshyj")
 [node name="Ladder" parent="." unique_id=1860804923 instance=ExtResource("3_0y44x")]
 position = Vector2(102, 75)
 
-[node name="EndFlag3" parent="." unique_id=1961935802 instance=ExtResource("4_0slgg")]
+[node name="EndFlag3" parent="." unique_id=1961935802 instance=ExtResource("5_j2wpc")]
 position = Vector2(100, 268)
 scene_to_load = ExtResource("5_j2wpc")
 

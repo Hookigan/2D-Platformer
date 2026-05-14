@@ -3,6 +3,7 @@ extends Area2D
 @export var top_limit : float = -4.0
 @export var bottom_limit : float = 300.0
 
+
 func _ready():
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)

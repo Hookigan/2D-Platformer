@@ -5,9 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dv0g1jn3n7ini" path="res://Scenes/player.tscn" id="3_xfk5q"]
 [ext_resource type="Texture2D" uid="uid://b8vc7j82b8ktc" path="res://Added_Sprites/Lv1_Tile.png" id="4_oovug"]
 [ext_resource type="Texture2D" uid="uid://b3re427v4n4j8" path="res://Added_Sprites/Press_E.png" id="6_6ioyp"]
-[ext_resource type="Script" uid="uid://c4hyv2302xgix" path="res://Scripts/end_flag.gd" id="6_lsmp6"]
 [ext_resource type="Texture2D" uid="uid://cek7cxh0beb4b" path="res://Added_Sprites/Hold_W.png" id="7_oovug"]
-[ext_resource type="Texture2D" uid="uid://dmby8u4c7otw3" path="res://Sprites/Objects/tile_0112.png" id="7_xrdnt"]
 [ext_resource type="Texture2D" uid="uid://dq6utv0gm6wkw" path="res://Added_Sprites/Double_Jump.png" id="8_8i23i"]
 [ext_resource type="Texture2D" uid="uid://b483xccwtpcxv" path="res://Added_Sprites/Careful.png" id="9_8yhm2"]
 [ext_resource type="PackedScene" uid="uid://cobdutl77vyns" path="res://Scenes/rope.tscn" id="10_af3po"]
@@ -25,9 +23,67 @@
 [ext_resource type="Script" uid="uid://db211x4mhfh65" path="res://Scripts/moving_platform.gd" id="19_yltlr"]
 [ext_resource type="Texture2D" uid="uid://5hld6exfpvmf" path="res://Added_Sprites/Lever5.png" id="20_1f27d"]
 [ext_resource type="Script" uid="uid://t6gs0xle1xi4" path="res://Scripts/chest.gd" id="20_6ssoq"]
+[ext_resource type="Texture2D" uid="uid://c6hon30pqdyrm" path="res://Added_Sprites/P_Interact.png" id="22_u5cqy"]
+[ext_resource type="PackedScene" uid="uid://v4y3k3nglc6a" path="res://Scenes/end_flag.tscn" id="22_vr6f4"]
+[ext_resource type="Texture2D" uid="uid://cllitohomx438" path="res://Added_Sprites/Respawn.png" id="27_u0op5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrinw"]
-size = Vector2(15, 18)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yhm2"]
+size = Vector2(3, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pm77i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_gcla0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_gcla0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vr6f4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_u5cqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_u0op5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_1f27d")
+}],
+"loop": false,
+"name": &"pull",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjppf"]
+size = Vector2(58, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ssoq"]
+size = Vector2(71, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imks0"]
+size = Vector2(114, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yltlr"]
+size = Vector2(50, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlmop"]
+size = Vector2(32, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sda17"]
+size = Vector2(66, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fal7"]
+size = Vector2(70, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcla0"]
+size = Vector2(75, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8i23i"]
 texture = ExtResource("4_oovug")
@@ -1399,147 +1455,11 @@ tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8i23i")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yhm2"]
-size = Vector2(3, 12)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pm77i"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_gcla0")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_gcla0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_vr6f4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_u5cqy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_u0op5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_1f27d")
-}],
-"loop": false,
-"name": &"pull",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjppf"]
-size = Vector2(58, 7)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yltlr"]
-size = Vector2(50, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ssoq"]
-size = Vector2(71, 57)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_imks0"]
-size = Vector2(114, 17)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlmop"]
-size = Vector2(32, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sda17"]
-size = Vector2(66, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fal7"]
-size = Vector2(70, 14)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcla0"]
-size = Vector2(75, 16)
-
 [node name="Main" type="Node2D" unique_id=1272142956]
 
 [node name="Lv1Bg" type="Sprite2D" parent="." unique_id=890493236]
 position = Vector2(553, -31)
 texture = ExtResource("1_6ioyp")
-
-[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1509072348 groups=["SpawnPoint"]]
-position = Vector2(1296, -176)
-
-[node name="EndFlag" type="Area2D" parent="." unique_id=100436391]
-position = Vector2(1341, -181)
-script = ExtResource("6_lsmp6")
-scene_to_load = ExtResource("3_gcla0")
-
-[node name="Sprite" type="Sprite2D" parent="EndFlag" unique_id=193383982]
-texture = ExtResource("7_xrdnt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndFlag" unique_id=1409293830]
-shape = SubResource("RectangleShape2D_wrinw")
-
-[node name="Sprites" type="Node" parent="." unique_id=115729556]
-
-[node name="PressE" type="Sprite2D" parent="Sprites" unique_id=661794807]
-position = Vector2(376, -92)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_6ioyp")
-
-[node name="HoldW" type="Sprite2D" parent="Sprites" unique_id=252695713]
-position = Vector2(-399.00003, -162)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("7_oovug")
-
-[node name="DoubleJump" type="Sprite2D" parent="Sprites" unique_id=166280134]
-position = Vector2(-115, -93)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_8i23i")
-
-[node name="Careful" type="Sprite2D" parent="Sprites" unique_id=1866504733]
-position = Vector2(-205, -196)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("9_8yhm2")
-
-[node name="Shadows" type="Sprite2D" parent="Sprites" unique_id=2030146471]
-position = Vector2(-526.795, -41.000004)
-rotation = 1.5707964
-scale = Vector2(1.1784749, 0.5927021)
-texture = ExtResource("14_6ioyp")
-
-[node name="Shadows2" type="Sprite2D" parent="Sprites" unique_id=1537928315]
-position = Vector2(521.99994, -469)
-rotation = -3.1415925
-scale = Vector2(3.216154, 0.32744884)
-texture = ExtResource("14_6ioyp")
-
-[node name="Shadows3" type="Sprite2D" parent="Sprites" unique_id=1946865153]
-position = Vector2(-46, -8.999998)
-scale = Vector2(0.33437493, 0.09714337)
-texture = ExtResource("14_6ioyp")
-
-[node name="Shadows4" type="Sprite2D" parent="Sprites" unique_id=878328613]
-position = Vector2(417.00006, 260.99997)
-rotation = -1.5707964
-scale = Vector2(0.30567494, 0.3422782)
-texture = ExtResource("14_6ioyp")
-
-[node name="Shadows5" type="Sprite2D" parent="Sprites" unique_id=1318294004]
-position = Vector2(1614.5, -30.692123)
-rotation = -1.5707964
-scale = Vector2(1.1392446, 0.48395208)
-texture = ExtResource("14_6ioyp")
-
-[node name="Lvl1Top" type="Sprite2D" parent="Sprites" unique_id=67250501]
-position = Vector2(553, -30)
-texture = ExtResource("10_oovug")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=144304241]
-stream = ExtResource("12_uy8f0")
-autoplay = true
-
-[node name="Main Level" type="TileMapLayer" parent="." unique_id=568971593]
-position = Vector2(48, 467)
-tile_map_data = PackedByteArray(0, 0, 27, 0, 227, 255, 0, 0, 0, 0, 0, 0, 0, 0)
-tile_set = SubResource("TileSet_8yhm2")
 
 [node name="Puzzles" type="Node" parent="." unique_id=1825094609]
 
@@ -1567,61 +1487,6 @@ disabled = true
 
 [node name="Rope" parent="Puzzles" unique_id=617449430 instance=ExtResource("10_af3po")]
 position = Vector2(320, 97)
-
-[node name="Dialogue Area" type="Node" parent="." unique_id=1217026411]
-
-[node name="DialogueTrigger" type="Area2D" parent="Dialogue Area" unique_id=302293870]
-position = Vector2(320, 97)
-script = ExtResource("17_8yhm2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dialogue Area/DialogueTrigger" unique_id=1439212465]
-position = Vector2(368, -163)
-shape = SubResource("RectangleShape2D_yltlr")
-
-[node name="BlackedOut" type="ColorRect" parent="Dialogue Area" unique_id=427637757]
-offset_left = 414.0
-offset_top = -42.0
-offset_right = 787.0
-offset_bottom = 164.0
-color = Color(0, 0, 0, 1)
-
-[node name="DialogueUI" type="CanvasLayer" parent="Dialogue Area" unique_id=320827739]
-
-[node name="DialogueBox" type="Panel" parent="Dialogue Area/DialogueUI" unique_id=589938126]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -197.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="DialogueText" type="Label" parent="Dialogue Area/DialogueUI/DialogueBox" unique_id=1208364552]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 42.0
-offset_right = 1149.0
-offset_bottom = 193.0
-theme_override_font_sizes/font_size = 33
-
-[node name="SpeakerLabel" type="Label" parent="Dialogue Area/DialogueUI/DialogueBox" unique_id=907264543]
-layout_mode = 1
-offset_right = 263.0
-offset_bottom = 37.0
-theme_override_font_sizes/font_size = 30
-
-[node name="ContinueLabel" type="Label" parent="Dialogue Area/DialogueUI/DialogueBox" unique_id=943546716]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = -34.0
-offset_right = 154.0
-offset_bottom = -11.0
-grow_vertical = 0
-text = "Press E to continue"
 
 [node name="NPC" type="Node" parent="." unique_id=1155199113]
 
@@ -1661,6 +1526,61 @@ position = Vector2(880, 147)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/MovingPlatform/DetectionArea" unique_id=2010870266]
 position = Vector2(1, -10)
 shape = SubResource("RectangleShape2D_imks0")
+
+[node name="Dialogue Area" type="Node" parent="NPC" unique_id=1217026411]
+
+[node name="DialogueTrigger" type="Area2D" parent="NPC/Dialogue Area" unique_id=302293870]
+position = Vector2(320, 97)
+script = ExtResource("17_8yhm2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Dialogue Area/DialogueTrigger" unique_id=1439212465]
+position = Vector2(368, -163)
+shape = SubResource("RectangleShape2D_yltlr")
+
+[node name="BlackedOut" type="ColorRect" parent="NPC/Dialogue Area" unique_id=427637757]
+offset_left = 414.0
+offset_top = -42.0
+offset_right = 787.0
+offset_bottom = 164.0
+color = Color(0, 0, 0, 1)
+
+[node name="DialogueUI" type="CanvasLayer" parent="NPC/Dialogue Area" unique_id=320827739]
+
+[node name="DialogueBox" type="Panel" parent="NPC/Dialogue Area/DialogueUI" unique_id=589938126]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -197.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogueText" type="Label" parent="NPC/Dialogue Area/DialogueUI/DialogueBox" unique_id=1208364552]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 42.0
+offset_right = 1149.0
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 33
+
+[node name="SpeakerLabel" type="Label" parent="NPC/Dialogue Area/DialogueUI/DialogueBox" unique_id=907264543]
+layout_mode = 1
+offset_right = 263.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 30
+
+[node name="ContinueLabel" type="Label" parent="NPC/Dialogue Area/DialogueUI/DialogueBox" unique_id=943546716]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -34.0
+offset_right = 154.0
+offset_bottom = -11.0
+grow_vertical = 0
+text = "Press E to continue"
 
 [node name="DialogueUI" type="CanvasLayer" parent="NPC" unique_id=3244314]
 
@@ -1797,14 +1717,97 @@ offset_bottom = -11.0
 grow_vertical = 0
 text = "Press E to continue"
 
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1509072348 groups=["SpawnPoint"]]
+position = Vector2(-413, -85)
+
+[node name="Sprites" type="Node" parent="." unique_id=115729556]
+
+[node name="PressE" type="Sprite2D" parent="Sprites" unique_id=661794807]
+position = Vector2(376, -92)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_6ioyp")
+
+[node name="HoldW" type="Sprite2D" parent="Sprites" unique_id=252695713]
+position = Vector2(-399.00003, -162)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_oovug")
+
+[node name="DoubleJump" type="Sprite2D" parent="Sprites" unique_id=166280134]
+position = Vector2(-115, -93)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_8i23i")
+
+[node name="Careful" type="Sprite2D" parent="Sprites" unique_id=1866504733]
+position = Vector2(-205, -196)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_8yhm2")
+
+[node name="Shadows" type="Sprite2D" parent="Sprites" unique_id=2030146471]
+position = Vector2(-526.795, -41.000004)
+rotation = 1.5707964
+scale = Vector2(1.1784749, 0.5927021)
+texture = ExtResource("14_6ioyp")
+
+[node name="Shadows2" type="Sprite2D" parent="Sprites" unique_id=1537928315]
+position = Vector2(521.99994, -469)
+rotation = -3.1415925
+scale = Vector2(3.216154, 0.32744884)
+texture = ExtResource("14_6ioyp")
+
+[node name="Shadows3" type="Sprite2D" parent="Sprites" unique_id=1946865153]
+position = Vector2(-46, -8.999998)
+scale = Vector2(0.33437493, 0.09714337)
+texture = ExtResource("14_6ioyp")
+
+[node name="Shadows4" type="Sprite2D" parent="Sprites" unique_id=878328613]
+position = Vector2(417.00006, 260.99997)
+rotation = -1.5707964
+scale = Vector2(0.30567494, 0.3422782)
+texture = ExtResource("14_6ioyp")
+
+[node name="Shadows5" type="Sprite2D" parent="Sprites" unique_id=1318294004]
+position = Vector2(1614.5, -30.692123)
+rotation = -1.5707964
+scale = Vector2(1.1392446, 0.48395208)
+texture = ExtResource("14_6ioyp")
+
+[node name="Lvl1Top" type="Sprite2D" parent="Sprites" unique_id=67250501]
+position = Vector2(553, -30)
+texture = ExtResource("10_oovug")
+
+[node name="PInteract" type="Sprite2D" parent="Sprites" unique_id=221228300]
+position = Vector2(247, 242)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_u5cqy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=144304241]
+stream = ExtResource("12_uy8f0")
+autoplay = true
+
+[node name="Main Level" type="TileMapLayer" parent="." unique_id=568971593]
+position = Vector2(48, 467)
+tile_map_data = PackedByteArray(0, 0, 27, 0, 227, 255, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_8yhm2")
+
+[node name="EndFlag" parent="." unique_id=1961935802 instance=ExtResource("22_vr6f4")]
+position = Vector2(1337, -194)
+scene_to_load = ExtResource("3_gcla0")
+
 [node name="Player" parent="." unique_id=2104840514 instance=ExtResource("3_xfk5q")]
-position = Vector2(-414, -75)
+position = Vector2(-428, -80)
 jump_force = 210.0
+lock_x_on_ladder = true
 
 [node name="Player2" parent="." unique_id=514404792 instance=ExtResource("10_chwpn")]
-position = Vector2(-389, -75)
+position = Vector2(-400, -79)
 jump_force = 180.0
 input_respawn = "respawn_p2"
 double_jump = true
+input_up = "climb_up_p2"
+input_down = "climb_dow0_p2n"
+lock_x_on_ladder = true
 
-[connection signal="body_entered" from="EndFlag" to="EndFlag" method="_on_body_entered"]
+[node name="Respawn" type="Sprite2D" parent="." unique_id=1581788557]
+position = Vector2(557, -85)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("27_u0op5")
